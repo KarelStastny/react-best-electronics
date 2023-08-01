@@ -1,12 +1,11 @@
 import React from 'react'
 
-const App = () => {
+const AdSlider = () => {
   return (
     <div>
-
+      AdSlider
     </div>
-
   )
 }
 
-export default App
+export default AdSlider

@@ -1,12 +1,11 @@
 import React from 'react'
 
-const App = () => {
+const Logo = () => {
   return (
     <div>
-
+      Logo
     </div>
-
   )
 }
 
-export default App
+export default Logo

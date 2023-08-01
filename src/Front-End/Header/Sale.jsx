@@ -1,12 +1,11 @@
 import React from 'react'
 
-const App = () => {
+const Sale = () => {
   return (
     <div>
-
+      Sale
     </div>
-
   )
 }
 
-export default App
+export default Sale

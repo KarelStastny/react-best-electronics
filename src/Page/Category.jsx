@@ -1,12 +1,11 @@
 import React from 'react'
 
-const App = () => {
+const Category = () => {
   return (
     <div>
-
+      Category
     </div>
-
   )
 }
 
-export default App
+export default Category
