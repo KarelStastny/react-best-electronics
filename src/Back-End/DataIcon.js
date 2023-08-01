@@ -1,4 +1,4 @@
-// Srdce12, account, fajfka, popelnice12, fitler, odhlášení, zámek, download, v levo, v pravo, facebook
+// Srdce12, account, fajfka, popelnice12, fitler, odhlášení, zámek, download, v levo, v pravo, facebook, cart
 import {
   MdFavoriteBorder,
   MdFavorite,
@@ -13,5 +13,6 @@ import {
   MdKeyboardArrowLeft,
   MdKeyboardArrowRight,
   MdFacebook,
+  MdOutlineShoppingCart,
   
 } from "react-icons/md";
