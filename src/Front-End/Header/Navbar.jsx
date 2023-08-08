@@ -14,6 +14,8 @@ const Navbar = () => {
           
           
             <Link className='hover:bg-second px-2 py-1 transition-all duration-200 ease-in-out hover:text-black font-semibold rounded-md ' to="/category">Category</Link>
+
+            <Link className='hover:bg-second px-2 py-1 transition-all duration-200 ease-in-out hover:text-black font-semibold rounded-md ' to="/newProduct">NewProduct</Link>
           
         </ul>
       </div>

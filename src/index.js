@@ -3,15 +3,16 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import { BrowserRouter as Router } from "react-router-dom";
-import { initialState } from "./Back-End/context/initalState";
-import { StateProvider } from "./Back-End/context/StateProvider";
-import reducer from "./Back-End/context/reducer";
+import  ShopContextProvider, {ShopContext} from "./Back-End/context/ShopContext";
+
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
+  <ShopContextProvider >
   <Router>
-    <StateProvider initialState={initialState} reducer={reducer}>
+    
       <App />
-    </StateProvider>
+    
   </Router>
+  </ShopContextProvider>
 );
