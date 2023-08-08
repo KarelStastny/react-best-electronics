@@ -1,13 +1,18 @@
-import React from 'react'
+
+
+import React, { useState } from 'react';
+import useLoadData from '../../Back-End/LoadDataFirebase'; // Importujte komponentu useLoadData
 
 const Produkt = () => {
+  const products = useLoadData();
+
   return (
     <div>
-      Produkt
+      <h1>Seznam produktů</h1>
 
+   
     </div>
-  )
-}
+  );
+};
 
-export default Produkt
-
+export default Produkt;
