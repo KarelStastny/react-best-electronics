@@ -5,6 +5,7 @@ import Category from "./Page/Category"
 import About from "./Page/About"
 import Footer from "./Front-End/Footer"
 import NewProduct from "./Page/NewProduct"
+import Admin from "./Page/Admin"
 import { Routes, Route } from 'react-router-dom'
 
 const App = () => {
@@ -17,6 +18,7 @@ const App = () => {
           <Route path="/category" element={<Category/>} />
           <Route path="/about" element={<About/>} />
           <Route path="/newProduct" element={<NewProduct/>} />
+          <Route path="/admin" element={<Admin/>} />
         </Routes>
         
       </main>

@@ -1,5 +1,6 @@
 import firebase from "firebase/app"
 import "firebase/firestore"
+import "firebase/storage";
 
 const firebaseConfig = {
     apiKey: "AIzaSyAYkgCCMd3E1mC-SR6Ad7h5Bm_ken9Wxls",
@@ -14,9 +15,8 @@ const firebaseConfig = {
   firebase.initializeApp(firebaseConfig)
 
 
-// Počáteční initializace služeb
+const ShopFirestore = firebase.firestore() // Počáteční initializace služeb
+const ShopStorage = firebase.storage() // Inicializace modulu Storage
 
-const ShopFirestore = firebase.firestore()
-
-export { ShopFirestore }
+export { ShopFirestore, ShopStorage }
 

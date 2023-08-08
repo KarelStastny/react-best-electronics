@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ShopFirestore } from "../Back-End/firebase/config";
+import { ShopFirestore, ShopStorage } from "../Back-End/firebase/config";
 
 const NewProduct = () => {
   const [title, setTitle] = useState("");
@@ -9,7 +9,27 @@ const NewProduct = () => {
   const [shortText, setShortText] = useState("");
   const [longText, setLongText] = useState("");
   const [newProduct, setNewProduct] = useState("");
-  const [image, setImage] = useState("");
+  const [imageAsset, setImageAsset] = useState("");
+  const [uploading, setUploading] = useState(false);
+
+  // ********** Upload Image
+
+  const uploadImage = async (e) => {
+    const file = e.target.files[0];
+    const storageRef = ShopStorage.ref(); // Použijeme ShopStorage
+    const fileRef = storageRef.child(`images/${file.name}`);
+
+    try {
+      setUploading(true); // Začátek nahrávání
+      await fileRef.put(file);
+      const imageUrl = await fileRef.getDownloadURL();
+      setImageAsset(imageUrl); // Nastavit URL obrázku
+      setUploading(false); // Konec nahrávání
+    } catch (error) {
+      console.error("Chyba při nahrávání obrázku:", error);
+      setUploading(false); // Konec nahrávání (i v případě chyby)
+    }
+  };
 
   // Odelsání formuláře
   const submitForm = async (e) => {
@@ -21,9 +41,10 @@ const NewProduct = () => {
       mainCategory: mainCategory,
       secondCategory: secondCategory,
       price: price,
-      shortText:shortText,
+      shortText: shortText,
       longText: longText,
       newProduct: newProduct,
+      imageAsset: imageAsset,
     };
 
     try {
@@ -32,6 +53,13 @@ const NewProduct = () => {
 
       // Vyprázdnění políček
       setTitle("");
+      setMainCategory("");
+      setLongText("");
+      setPrice("");
+      setShortText("");
+      setNewProduct("");
+      setSecondCategory("");
+      setImageAsset("")
     } catch {
       console.log("Eror");
     }
@@ -42,7 +70,6 @@ const NewProduct = () => {
       <div className="flex justify-center items-center flex-col">
         {/* Formulář pro odeslání Dat do databáze */}
         <form onSubmit={submitForm} className="flex flex-col">
-
           {/* Název produktu */}
           <input
             type="text"
@@ -52,8 +79,8 @@ const NewProduct = () => {
             className="text-black"
           />
 
-                    {/* Hlavní Kategorie */}
-                    <input
+          {/* Hlavní Kategorie */}
+          <input
             type="text"
             placeholder="Hlavní Kategorie"
             onChange={(e) => setMainCategory(e.target.value)}
@@ -61,8 +88,8 @@ const NewProduct = () => {
             className="text-black"
           />
 
-                    {/* Vedlejší kategorie */}
-                    <input
+          {/* Vedlejší kategorie */}
+          <input
             type="text"
             placeholder="Vedlejší Kategorie"
             onChange={(e) => setSecondCategory(e.target.value)}
@@ -70,8 +97,8 @@ const NewProduct = () => {
             className="text-black"
           />
 
-                    {/* Cena */}
-                    <input
+          {/* Cena */}
+          <input
             type="text"
             placeholder="Cena"
             onChange={(e) => setPrice(e.target.value)}
@@ -79,8 +106,8 @@ const NewProduct = () => {
             className="text-black"
           />
 
-                    {/* Krátký text */}
-                    <input
+          {/* Krátký text */}
+          <input
             type="text"
             placeholder="Krátký popis"
             onChange={(e) => setShortText(e.target.value)}
@@ -88,8 +115,8 @@ const NewProduct = () => {
             className="text-black"
           />
 
-                    {/* Dlouhý text */}
-                    <input
+          {/* Dlouhý text */}
+          <input
             type="text"
             placeholder="Podrobný popis"
             onChange={(e) => setLongText(e.target.value)}
@@ -97,14 +124,17 @@ const NewProduct = () => {
             className="text-black"
           />
 
-                    {/* Nový produkt */}
-                    <input
+          {/* Nový produkt */}
+          <input
             type="text"
             placeholder="Nový Produkt"
             onChange={(e) => setNewProduct(e.target.value)}
             value={newProduct}
             className="text-black"
           />
+
+          {/* Obrázek */}
+          <input type="file" name="uploadimage" onChange={uploadImage} />
 
           {/* Odesílací tlačítko */}
           <input type="submit" />
