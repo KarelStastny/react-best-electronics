@@ -35,13 +35,17 @@ const Produkt = () => {
     return false; // Přidejte tento řádek jako fallback pro ostatní případy
   });
 
+ 
+
+
+
   return (
-    <div className="prodkut">
-      <div className="flex flex-wrap">
+    <div className="w-full prodkut">
+      <div className="flex flex-wrap w-full pt-7 ">
         {filteredProducts.map((one) => {
           return (
             <div
-              className="flex flex-col justify-center items-center w-1/2 flex-wrap md:w-1/3 lg:w-1/4  p-3 "
+              className="flex flex-col  justify-center items-center w-1/2 flex-wrap  md:w-1/3 lg:w-1/4 xl:w-1/5  p-3 "
               key={one.id}
             >
               {/* Vnitřní barva */}

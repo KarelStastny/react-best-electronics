@@ -2,8 +2,15 @@ import React, { useContext } from 'react';
 import Categories from '../../Back-End/Categories';
 import { ShopContext } from '../../Back-End/context/ShopContext';
 
+
 const FilterMenu = () => {
-  const { selectedCategory, setSelectedCategory, selectedSubcategory, setSelectedSubcategory } = useContext(ShopContext);
+  const { selectedCategory, setSelectedCategory, selectedSubcategory, setSelectedSubcategory, resetFilterProducts } = useContext(ShopContext);
+
+
+  
+
+
+
 
 // Funkce pro přepínání vybrané kategorie
 const toggleCategory = (categoryTitle) => {
@@ -26,10 +33,14 @@ const toggleSubcategory = (subcategoryTitle) => {
   }
 }
 
+
+
+
   return (
     <div className="filter-menu">
       <div className="md:w-[200px] bg-dark md:h-screen rounded-xl">
-        <div className="uppercase bg-second text-dark font-bold py-2 px-5 rounded-t-xl">
+        {/* resetování prduktu */}
+        <div onClick={() => resetFilterProducts()} className="uppercase bg-second text-dark font-bold py-2 px-5 rounded-t-xl cursor-pointer">
           Katalog
         </div>
         {Categories?.map((category) => (
