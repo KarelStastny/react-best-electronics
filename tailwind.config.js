@@ -15,6 +15,8 @@ module.exports = {
         dark: '#151618',
         second: '#F6CD46',
         secondHover: '#E1B72E',
+        lightWhite: "#E5E5E5"
+      
       },
     },
   },
