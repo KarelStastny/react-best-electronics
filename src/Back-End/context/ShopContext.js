@@ -1,13 +1,16 @@
-import React,{useState, useEffect, createContext} from 'react';
-export const ShopContext = createContext()
+import React, { useState, createContext } from 'react';
 
-const ShopContextProvider = ({children}) => {
-    const [price, setPrice] = useState("")
- return(
-    <ShopContext.Provider value={price}>
-        {children}
+export const ShopContext = createContext();
+
+const ShopContextProvider = ({ children }) => {
+  const [selectedCategory, setSelectedCategory] = useState(null); // Hlavní kategorie
+  const [selectedSubcategory, setSelectedSubcategory] = useState(null)
+
+  return (
+    <ShopContext.Provider value={{ selectedCategory, setSelectedCategory, selectedSubcategory, setSelectedSubcategory }}>
+      {children}
     </ShopContext.Provider>
- )
-}
+  );
+};
 
-export default ShopContextProvider
+export default ShopContextProvider;

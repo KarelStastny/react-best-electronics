@@ -7,6 +7,7 @@ import Footer from "./Front-End/Footer"
 import NewProduct from "./Page/NewProduct"
 import Admin from "./Page/Admin"
 import { Routes, Route } from 'react-router-dom'
+import ShopContextProvider from './Back-End/context/ShopContext'
 
 const App = () => {
   return (

@@ -1,15 +1,44 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import useLoadData from "../../Back-End/LoadDataFirebase"; // Importujte komponentu useLoadData
 import { Link } from "react-router-dom";
+import { ShopContext } from "../../Back-End/context/ShopContext";
 
 const Produkt = () => {
+  const { selectedCategory, selectedSubcategory } = useContext(ShopContext);
   const products = useLoadData();
-  console.log(products);
+
+  // Filter produktů
+
+  const filteredProducts = products.filter((product) => {
+    // Pokud nejsou vybrány žádné kategorie vygeneruje vše
+    if (!selectedCategory && !selectedSubcategory) {
+      return true;
+    }
+
+    // Pokud jsou vybrány obě kategorie, vrátí tu podkategorii která má shodu s hlavní kategorii
+    if (selectedCategory && selectedSubcategory) {
+      return (
+        product.mainCategory === selectedCategory &&
+        product.secondCategory === selectedSubcategory
+      );
+    }
+    // Pokud je vybrána pouze hlavní kategorie vrátí vše v ní
+    if (selectedCategory) {
+      return product.mainCategory === selectedCategory;
+    }
+
+    // POkud je vybrána pouze podkategorie, vrátí pouze jí
+    if (selectedSubcategory) {
+      return product.secondCategory === selectedSubcategory;
+    }
+
+    return false; // Přidejte tento řádek jako fallback pro ostatní případy
+  });
+
   return (
     <div className="prodkut">
       <div className="flex flex-wrap">
-        {products.map((one) => {
-          console.log(one.newProduct);
+        {filteredProducts.map((one) => {
           return (
             <div
               className="flex flex-col justify-center items-center w-1/2 flex-wrap md:w-1/3 lg:w-1/4  p-3 "
@@ -42,7 +71,9 @@ const Produkt = () => {
                 <div className="uppercase text-xs text-second mb-2">
                   {one.mainCategory}
                 </div>
-                <h2 className="font-semibold text-xs md:text-sm mb-6">{one.title.substring(0,25)}...</h2>
+                <h2 className="font-semibold text-xs md:text-sm mb-6">
+                  {one.title.substring(0, 25)}...
+                </h2>
                 <h3 className="text-second font-semibold text-right">
                   {one.price} Kč
                 </h3>
