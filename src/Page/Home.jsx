@@ -9,7 +9,7 @@ import Header from "../Front-End/Header/Header";
 const Home = () => {
   return (
     <main>
-    
+  
       <div className="home px-5 lg:px-16">
         {/* Horní sekce popisu a slideru */}
         <section className=" flex justify-center items-center flex-col md:flex-row  ">
