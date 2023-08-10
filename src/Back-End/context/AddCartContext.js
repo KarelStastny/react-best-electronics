@@ -22,11 +22,24 @@ const AddCartContextProvider = ({ children }) => {
     setCart((prevCart) => prevCart.filter((item) => item.id !== productId));
   };
 
+  //   Délka pole
+const cartLength = cart.length
+
+// Prázdné pole
+
+const emptyCart = () => {
+    if(cartLength < 1){
+        return false
+    }else{
+        return true
+    }
+}
+
   
 
-  // console.log(cart);
+  
   return (
-    <AddCartContext.Provider value={{ addToCart, deleteFromCart, isProductInCart }}>
+    <AddCartContext.Provider value={{ addToCart, deleteFromCart, isProductInCart, cartLength, emptyCart  }}>
       {children}
     </AddCartContext.Provider>
   );

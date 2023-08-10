@@ -35,7 +35,7 @@ const emptyFavorite = () => {
     }
 }
 
-
+console.log(favorite);
 
 
 

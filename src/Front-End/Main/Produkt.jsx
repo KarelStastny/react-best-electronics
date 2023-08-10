@@ -47,11 +47,11 @@ const Produkt = () => {
    
           return (
             <div
-              className="flex flex-col  justify-center items-center w-1/2 flex-wrap  md:w-1/3 lg:w-1/4 xl:w-1/5  p-3 "
+              className="flex flex-col  justify-center items-center w-1/2 flex-wrap  md:w-1/3 lg:w-1/4 xl:w-1/5  p-1 sm:p-3 "
               key={one.id}
             >
               {/* Vnitřní barva */}
-              <Link className="bg-gradient-to-b rounded-lg from-dark to-primary p-4 w-full h-full">
+              <Link className="bg-gradient-to-b rounded-lg from-dark to-primary p-2 sm:p-4 w-full h-full">
                 {/* FAvorite */}
 
                 <div className="flex justify-end">
@@ -86,14 +86,16 @@ const Produkt = () => {
                     {one.title}
                   </h2>
                 )}
-                <div className="flex justify-between">
+         
+                <div className="flex justify-between items-center">
                   <button>
                     <AddCartButton product={one} />
                   </button>
-                  <h3 className="text-second font-semibold text-right">
+                  <h3 className="text-second font-semibold text-right text-xs sm:text-base">
                     {one.price} Kč
                   </h3>
                 </div>
+           
               </Link>
             </div>
           );

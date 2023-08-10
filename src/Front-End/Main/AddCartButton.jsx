@@ -17,13 +17,13 @@ const AddCartButton = ({ product }) => {
     <div className="addcart w-full">
       {isProductInCart(product.id) ? (
         <button onClick={handleDeleteToCart} className="flex items-center bg-second py-1 px-2 rounded-lg">
-          <span className="mr-2 text-dark font-semibold">Remove</span>
-          <MdDelete className="fill-dark text-[20px]" />
+          <span className="mr-1 md:mr-2 text-dark font-semibold text-xs sm:text-base">Remove</span>
+          <MdDelete className="fill-dark text-[15px] sm:text-[20px]" />
         </button>
       ) : (
         <button onClick={handleAddToCart} className="flex items-center bg-second py-1 px-2 rounded-lg">
-          <span className="mr-2 text-dark font-semibold">Add</span>
-          <MdOutlineShoppingCart className="fill-dark text-[20px]" />
+          <span className="mr-2 text-dark f1 md:mr-2nt-semibold text-xs sm:text-base">Add</span>
+          <MdOutlineShoppingCart className="fill-dark text-[15px] sm:text-[20px]" />
         </button>
       )}
     </div>
