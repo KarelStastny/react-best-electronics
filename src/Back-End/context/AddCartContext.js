@@ -12,7 +12,7 @@ const AddCartContextProvider = ({ children }) => {
   const addToCart = (product) => {
     if (!isProductInCart(product.id)) {
       setCart((prevCart) => [...prevCart, product]);
-      console.log(product.id);
+      
     } else {
       console.log("Produkt je již v košíku.");
     }
@@ -22,6 +22,7 @@ const AddCartContextProvider = ({ children }) => {
     setCart((prevCart) => prevCart.filter((item) => item.id !== productId));
   };
 
+  console.log(cart);
   return (
     <AddCartContext.Provider value={{ addToCart, deleteFromCart, isProductInCart }}>
       {children}
