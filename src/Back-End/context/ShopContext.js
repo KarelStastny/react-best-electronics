@@ -5,10 +5,11 @@ export const ShopContext = createContext();
 const ShopContextProvider = ({ children }) => {
   const [selectedCategory, setSelectedCategory] = useState(null); // Hlavní kategorie
   const [selectedSubcategory, setSelectedSubcategory] = useState(null);
-  const [favorites, setFavorites] = useState([]);
+  const [isOpenMenu, setIsOpenMenu] = useState(false);
+  const [isAdminMenuOpen, setIsAdminMenuOpen] = useState(false)
 
 
-
+ 
 
 
   // Funkce pro reset filteru
@@ -30,8 +31,11 @@ const ShopContextProvider = ({ children }) => {
         selectedSubcategory,
         setSelectedSubcategory,
         resetFilterProducts,
-        favorites,
-        setFavorites,
+   
+        isOpenMenu,
+        setIsOpenMenu,
+        isAdminMenuOpen, 
+        setIsAdminMenuOpen
       }}
     >
       {children}
