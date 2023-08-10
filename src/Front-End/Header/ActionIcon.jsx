@@ -26,13 +26,17 @@ const ActionIcon = () => {
     setIsOpenMenu(false)
   }
 
+  const favoriteMenu = () => {
+    setIsOpenMenu(false)
+  } 
+
  
 
   return (
     <div className="actionIcon">
       <div className=" gap-3 flex  ">
         {/* Oblíbené položky */}
-        <div className="relative">
+        <Link to={"/favorite"} onClick={favoriteMenu} className="relative">
           <MdFavoriteBorder className="text-[35px] p-[1px] hover:fill-red-600 rounded-md hover: transition-all duration-100 ease-in-out cursor-pointer" />
           {/* Zobrazení položek */}
 
@@ -41,7 +45,7 @@ const ActionIcon = () => {
               {FavoriteLength}
             </span>
           </div>
-        </div>
+        </Link>
 
         {/* Košík */}
         <div className="relative">

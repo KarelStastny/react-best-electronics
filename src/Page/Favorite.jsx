@@ -1,53 +1,28 @@
-import React, { useState, useContext } from "react";
-import useLoadData from "../../Back-End/LoadDataFirebase"; // Importujte komponentu useLoadData
-import { Link } from "react-router-dom";
-import { ShopContext } from "../../Back-End/context/ShopContext";
-import { MdFavoriteBorder, MdFavorite } from "react-icons/md";
-import AddCartButton from "./AddCartButton";
-import AddFavoriteButton from "./AddFavoriteButton";
+import React, { useContext } from 'react'
+import Produkt from '../Front-End/Main/Produkt'
+import useLoadData from "../Back-End/LoadDataFirebase"
+import { ShopContext } from '../Back-End/context/ShopContext'
+import {AddFavoriteContext} from '../Back-End/context/AddFavoriteContext'
+import { Link } from 'react-router-dom'
+import AddCartButton from '../Front-End/Main/AddCartButton'
+import AddFavoriteButton from '../Front-End/Main/AddFavoriteButton'
 
-const Produkt = () => {
-  const { selectedCategory, selectedSubcategory } = useContext(ShopContext);
+const Favorite = () => {
+    // const {  } =useContext(ShopContext)
+    const { favorite } =useContext(AddFavoriteContext)
+    const products = favorite;
 
-  const products = useLoadData();
-
-  // Filter produktů
-
-  const filteredProducts = products.filter((product) => {
-    // Pokud nejsou vybrány žádné kategorie vygeneruje vše
-    if (!selectedCategory && !selectedSubcategory) {
-      return true;
-    }
-
-    // Pokud jsou vybrány obě kategorie, vrátí tu podkategorii která má shodu s hlavní kategorii
-    if (selectedCategory && selectedSubcategory) {
-      return (
-        product.mainCategory === selectedCategory &&
-        product.secondCategory === selectedSubcategory
-      );
-    }
-    // Pokud je vybrána pouze hlavní kategorie vrátí vše v ní
-    if (selectedCategory) {
-      return product.mainCategory === selectedCategory;
-    }
-
-    // POkud je vybrána pouze podkategorie, vrátí pouze jí
-    if (selectedSubcategory) {
-      return product.secondCategory === selectedSubcategory;
-    }
-
-    return false; // Přidejte tento řádek jako fallback pro ostatní případy
-  });
-
+    console.log(products);
+    
+ 
   return (
-    <div className="w-full prodkut">
-      <div className="flex flex-wrap w-full pt-7 ">
-        {filteredProducts.map((one) => {
-          // Kontrola, zda je produkt oblíbený
-   
+    <div className='favoritePage max-w-7xl m-auto'>
+         <div className="flex flex-wrap w-full pt-7 ">
+        {products.map((one) => {
           return (
             <div
-              className="flex flex-col  justify-center items-center w-1/2 flex-wrap  md:w-1/3 xl:w-1/4 2xl:w-1/5  p-1 sm:p-3 "
+              className="flex flex-col  justify-center items-center w-1/2 flex-wrap  md:w-1/3 lg:w-1/4 xl:w-1/5 
+               p-1 sm:p-3 "
               key={one.id}
             >
               {/* Vnitřní barva */}
@@ -100,9 +75,13 @@ const Produkt = () => {
             </div>
           );
         })}
-      </div>
-    </div>
-  );
-};
 
-export default Produkt;
+    </div>
+    </div>
+
+   
+ 
+  )
+}
+
+export default Favorite

@@ -7,6 +7,7 @@ import Footer from "./Front-End/Footer"
 import NewProduct from "./Page/NewProduct"
 import Admin from "./Page/Admin"
 import { Routes, Route } from 'react-router-dom'
+import Favorite from './Page/Favorite'
 
 
 const App = () => {
@@ -20,6 +21,7 @@ const App = () => {
           <Route path="/about" element={<About/>} />
           <Route path="/newProduct" element={<NewProduct/>} />
           <Route path="/admin" element={<Admin/>} />
+          <Route path="/favorite" element={<Favorite/>} />
         </Routes>
         
       </main>

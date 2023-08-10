@@ -12,7 +12,6 @@ const AddFavoriteContextProvider = ({ children }) => {
   const addToFavorite = (product) => {
     if (!isProductInFavorite(product.id)) {
       setFavorite((prevFavorite) => [...prevFavorite, product]);
-      
     } else {
       console.log("Produkt je již v oblíbených.");
     }
@@ -22,27 +21,32 @@ const AddFavoriteContextProvider = ({ children }) => {
     setFavorite((prevCart) => prevCart.filter((item) => item.id !== productId));
   };
 
-//   Délka pole
-const FavoriteLength = favorite.length
+  //   Délka pole
+  const FavoriteLength = favorite.length;
 
-// Prázdné pole
+  // Prázdné pole
 
-const emptyFavorite = () => {
-    if(FavoriteLength < 1){
-        return true
-    }else{
-        return false
+  const emptyFavorite = () => {
+    if (FavoriteLength < 1) {
+      return true;
+    } else {
+      return false;
     }
-}
+  };
 
-console.log(favorite);
-
-
-
-
+  console.log(favorite);
 
   return (
-    <AddFavoriteContext.Provider value={{ addToFavorite, deleteFromFavorite, isProductInFavorite, FavoriteLength, emptyFavorite }}>
+    <AddFavoriteContext.Provider
+      value={{
+        addToFavorite,
+        deleteFromFavorite,
+        isProductInFavorite,
+        FavoriteLength,
+        emptyFavorite,
+        favorite,
+      }}
+    >
       {children}
     </AddFavoriteContext.Provider>
   );
