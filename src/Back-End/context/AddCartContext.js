@@ -22,7 +22,9 @@ const AddCartContextProvider = ({ children }) => {
     setCart((prevCart) => prevCart.filter((item) => item.id !== productId));
   };
 
-  console.log(cart);
+  
+
+  // console.log(cart);
   return (
     <AddCartContext.Provider value={{ addToCart, deleteFromCart, isProductInCart }}>
       {children}

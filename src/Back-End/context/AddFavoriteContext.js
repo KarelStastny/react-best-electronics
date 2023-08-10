@@ -22,9 +22,27 @@ const AddFavoriteContextProvider = ({ children }) => {
     setFavorite((prevCart) => prevCart.filter((item) => item.id !== productId));
   };
 
-  console.log(favorite);
+//   Délka pole
+const FavoriteLength = favorite.length
+
+// Prázdné pole
+
+const emptyFavorite = () => {
+    if(FavoriteLength < 1){
+        return true
+    }else{
+        return false
+    }
+}
+
+
+
+
+
+
+
   return (
-    <AddFavoriteContext.Provider value={{ addToFavorite, deleteFromFavorite, isProductInFavorite }}>
+    <AddFavoriteContext.Provider value={{ addToFavorite, deleteFromFavorite, isProductInFavorite, FavoriteLength, emptyFavorite }}>
       {children}
     </AddFavoriteContext.Provider>
   );
