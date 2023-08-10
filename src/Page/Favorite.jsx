@@ -12,10 +12,11 @@ const Favorite = () => {
     const { favorite } =useContext(AddFavoriteContext)
     const products = favorite;
 
-    console.log(products);
+  
     
  
   return (
+
     <div className='favoritePage max-w-7xl m-auto'>
          <div className="flex flex-wrap w-full pt-7 ">
         {products.map((one) => {
@@ -67,7 +68,7 @@ const Favorite = () => {
                     <AddCartButton product={one} />
                   </button>
                   <h3 className="text-second font-semibold text-right text-xs sm:text-base">
-                    {one.price} Kč
+                    {parseFloat(one.price).toLocaleString("cs-CZ")} Kč
                   </h3>
                 </div>
            

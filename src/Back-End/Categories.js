@@ -31,6 +31,16 @@ const Categories = [
         { id: 8, title: "Procesory" },
       ],
     },
+    {
+      id: 5,
+      title: "Mobily",
+      subcategories: [
+        { id: 9, title: "iPhone" },
+        { id: 10, title: "Samsung" },
+        { id: 11, title: "Xiaomi" },
+        { id: 12, title: "Google" },
+      ],
+    },
   ];
   
   export default Categories;

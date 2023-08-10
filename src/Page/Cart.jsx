@@ -22,7 +22,7 @@ const Cart = () => {
           return (
             <div
               className="flex flex-col w-full  justify-center items-center flex-wrap   
-               p-1 sm:p-3 "
+               p-1  "
               key={one.id}
             >
               {/* Vnitřní barva */}
@@ -54,7 +54,7 @@ const Cart = () => {
                 {/* Price */}
                 <div className="w-[20%] flex items-center justify-center">
                   <h3 className="text-second font-semibold text-right text-xs sm:text-base">
-                    {one.price} Kč
+                    {parseFloat(one.price).toLocaleString("cs-CZ")} Kč
                   </h3>
                 </div>
 

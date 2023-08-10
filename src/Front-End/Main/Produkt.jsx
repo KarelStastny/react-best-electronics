@@ -92,7 +92,7 @@ const Produkt = () => {
                     <AddCartButton product={one} />
                   </button>
                   <h3 className="text-second font-semibold text-right text-xs sm:text-base">
-                    {one.price} Kč
+                    {parseFloat(one.price).toLocaleString("cs-CZ")} Kč
                   </h3>
                 </div>
            
