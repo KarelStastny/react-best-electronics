@@ -43,7 +43,7 @@ const Produkt = () => {
       <div className="flex flex-wrap w-full pt-7 ">
         {filteredProducts.map((one) => {
           // Kontrola, zda je produkt oblíbený
-          console.log(one.id);
+   
           return (
             <div
               className="flex flex-col  justify-center items-center w-1/2 flex-wrap  md:w-1/3 lg:w-1/4 xl:w-1/5  p-3 "
