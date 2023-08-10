@@ -48,7 +48,7 @@ const ActionIcon = () => {
         </Link>
 
         {/* Košík */}
-        <div className="relative">
+        <Link to={"/cart"} className="relative">
           <MdOutlineShoppingCart className="text-[35px] p-[1px] hover:fill-second rounded-md hover: transition-all duration-100 ease-in-out cursor-pointer" />
           {/* Zobrazení položek */}
 
@@ -57,7 +57,7 @@ const ActionIcon = () => {
               {cartLength}
             </span>
           </div>
-        </div>
+        </Link>
 
         <div className="relative">
           <BiUserCircle onClick={clickAdminMenu} className="text-[35px] p-[1px] hover:fill-second rounded-md hover: transition-all duration-100 ease-in-out cursor-pointer" />

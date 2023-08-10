@@ -8,6 +8,7 @@ import NewProduct from "./Page/NewProduct"
 import Admin from "./Page/Admin"
 import { Routes, Route } from 'react-router-dom'
 import Favorite from './Page/Favorite'
+import Cart from './Page/Cart'
 
 
 const App = () => {
@@ -22,6 +23,7 @@ const App = () => {
           <Route path="/newProduct" element={<NewProduct/>} />
           <Route path="/admin" element={<Admin/>} />
           <Route path="/favorite" element={<Favorite/>} />
+          <Route path="/cart" element={<Cart/>} />
         </Routes>
         
       </main>
