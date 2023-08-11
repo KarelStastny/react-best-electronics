@@ -30,8 +30,8 @@ const Header = () => {
             <div className="bg-dark absolute mt-2 rounded-md left-0 p-2 z-20 w-full h-screen">
               <div className="flex flex-col items-center justify-center">
               <MobileNavbar />
-              <div className="mt-8">
-              <ActionIcon className=""/>
+              <div className="mt-8 w-full border">
+              <ActionIcon />
               </div>
               
               
