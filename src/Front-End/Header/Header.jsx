@@ -15,7 +15,7 @@ const Header = () => {
   };
 
   return (
-    <header className="header ">
+    <header className="header border-b-2 border-second ">
       <div className="flex justify-between items-center px-10 h-16 relative  ">
         <Navbar />
         <Logo className="" />
@@ -30,7 +30,7 @@ const Header = () => {
             <div className="bg-dark absolute mt-2 rounded-md left-0 p-2 z-20 w-full h-screen">
               <div className="flex flex-col items-center justify-center">
               <MobileNavbar />
-              <div className="mt-8 w-full border">
+              <div className="mt-8 w-full ">
               <ActionIcon />
               </div>
               

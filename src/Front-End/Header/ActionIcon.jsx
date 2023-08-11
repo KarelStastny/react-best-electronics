@@ -60,10 +60,10 @@ const ActionIcon = () => {
         <div className="relative">
           <BiUserCircle
             onClick={clickAdminMenu}
-            className="text-[35px] p-[1px] hover:fill-blue-500 rounded-md hover: transition-all duration-100 ease-in-out cursor-pointer"
+            className="text-[35px] p-[1px] hover:fill-blue-500 rounded-md hover: transition-all duration-100 ease-in-out cursor-pointer "
           />
           {isAdminMenuOpen === true && (
-            <div className=" bg-dark p-2 absolute top-100 right-0 mt-4 w-[200px] rounded-md">
+            <div className=" bg-dark p-2 absolute top-100 right-0 mt-4 w-[200px] rounded-md z-30">
               <ul className="flex flex-col">
                 <Link
                   onClick={linkMenu}

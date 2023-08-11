@@ -57,9 +57,8 @@ export const AdSlider = () => {
 
         {/* Add */}
         <div className="w-full   flex ">
-        
           <div className="w-[45%]  flex  flex-col items-center mt-8">
-            <h2 className="uppercase text-second font-semibold">
+            <h2 className="uppercase text-base md:text-lg text-second font-semibold">
               Speciální nabídka
             </h2>
             <p>Nejlepší produkty </p>
@@ -69,16 +68,32 @@ export const AdSlider = () => {
                 nejlepší ceny
               </span>
             </p>
-            <Link to={"/category"} className="mt-36">
-              <button className=" py-1 px-2 bg-second text-dark rounded-md font-semibold hover:bg-secondHover">Koupit</button>
+            <Link to={"/category"} className="mt-32">
+              <button className=" py-1 px-2 bg-second text-dark rounded-md font-semibold hover:bg-secondHover">
+                Koupit
+              </button>
             </Link>
           </div>
-          <div className="w-[55%] h-[300px]  flex items-end justify-center ">
+          <div className="w-[55%] h-[300px]  flex flex-col items-center justify-center ">
             <img
               src={sliderData[currentIndex].img}
               alt=""
               className="w-[75%] h-[75%] object-contain"
             />
+            {/* Dot */}
+            <div className="flex top-4 justify-center py-2">
+              {sliderData.map((slide, slideIndex) => {
+                return (
+                  <div
+                    key={slideIndex}
+                    onClick={() => goToSlide(slideIndex)}
+                    className="text-2xl cursor-pointer"
+                  >
+                    <RxDotFilled className="fill-red-100" />
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
 
@@ -92,13 +107,3 @@ export const AdSlider = () => {
 };
 
 export default AdSlider;
-
-// {/* Dot */}
-// <div className="flex top-4 justify-center py-2">
-//   {sliderData.map((slide, slideIndex) => {
-//     return <div key={slideIndex} onClick={() => goToSlide(slideIndex)} className="text-2xl cursor-pointer">
-
-//       <RxDotFilled className="fill-red-100" />
-//     </div>;
-//   })}
-// </div>

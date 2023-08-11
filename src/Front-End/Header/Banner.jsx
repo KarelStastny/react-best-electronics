@@ -10,9 +10,9 @@ import Img4 from "../../images/SocailIconColor/youtube.png";
 const Banner = () => {
   return (
     <div className="grad h-full  w-full rounded-2xl">
-      <div className="   rounded-lg grad p-2 sm:p-6 w-full h-full ">
+      <div className="   rounded-lg grad p-4 sm:p-6 w-full h-full ">
         <h1 className="font-semibold text-2xl xl:text-3xl italic">
-          Nejzajímavější obchod s elektronikou ve{" "}
+          Nejzajímavější obchod s elektronikou ve{" "} <br />
           <span className="uppercase text-second">vašem městě</span>
         </h1>
         <p className=" pt-4 pl-2 italic text-justify">
