@@ -12,11 +12,11 @@ const Home = () => {
   
       <div className="home px-5 lg:px-16">
         {/* Horní sekce popisu a slideru */}
-        <section className=" flex justify-center items-center flex-col md:flex-row  ">
-          <div className="w-full">
+        <section className=" flex justify-center items-center flex-col md:flex-row gap-4 pt-8 ">
+          <div className="w-full h-[350px] ">
             <Banner />
           </div>
-          <div className="w-full">
+          <div className="w-full h-[350px] ">
             <AdSlider />
           </div>
         </section>

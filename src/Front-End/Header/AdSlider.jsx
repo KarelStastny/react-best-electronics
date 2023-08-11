@@ -1,11 +1,104 @@
-import React from 'react'
+import React, { useState } from "react";
+import { BsArrowLeftCircle, BsArrowRightCircle } from "react-icons/bs";
+import { RxDotFilled } from "react-icons/rx";
 
-const AdSlider = () => {
+import Img1 from "../../images/AdSliderImage/1.png";
+import Img2 from "../../images/AdSliderImage/2.png";
+import Img3 from "../../images/AdSliderImage/3.png";
+import Img4 from "../../images/AdSliderImage/4.png";
+import Img5 from "../../images/AdSliderImage/5.png";
+import { Link } from "react-router-dom";
+
+// data
+const sliderData = [
+  {
+    img: Img1,
+  },
+  {
+    img: Img2,
+  },
+  {
+    img: Img3,
+  },
+  {
+    img: Img4,
+  },
+  {
+    img: Img5,
+  },
+];
+
+export const AdSlider = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const prevSlider = () => {
+    const isFirstSlide = currentIndex === 0;
+    const newIndex = isFirstSlide ? sliderData.length - 1 : currentIndex - 1;
+    setCurrentIndex(newIndex);
+  };
+  const nextSlider = () => {
+    const isLastSlide = currentIndex === sliderData.length - 1;
+    const newIndex = isLastSlide ? 0 : currentIndex + 1;
+    setCurrentIndex(newIndex);
+  };
+
+  const goToSlide = (slideIndex) => {
+    setCurrentIndex(slideIndex);
+  };
+
   return (
-    <div>
-      AdSlider
-    </div>
-  )
-}
+    <div className=" grad w-full h-full rounded-2xl ">
+      {/* Ad container */}
+      <div className="flex  items-center justify-center h-full w-full  relative">
+        {/* Left Arrow */}
+        <div className="absolute left-2 cursor-pointer">
+          <BsArrowLeftCircle onClick={prevSlider} size={30} />
+        </div>
 
-export default AdSlider
+        {/* Add */}
+        <div className="w-full   flex ">
+        
+          <div className="w-[45%]  flex  flex-col items-center mt-8">
+            <h2 className="uppercase text-second font-semibold">
+              Speciální nabídka
+            </h2>
+            <p>Nejlepší produkty </p>
+            <p>
+              za{" "}
+              <span className="underline text-second font-bold uppercase text-sm">
+                nejlepší ceny
+              </span>
+            </p>
+            <Link to={"/category"} className="mt-36">
+              <button className=" py-1 px-2 bg-second text-dark rounded-md font-semibold hover:bg-secondHover">Koupit</button>
+            </Link>
+          </div>
+          <div className="w-[55%] h-[300px]  flex items-end justify-center ">
+            <img
+              src={sliderData[currentIndex].img}
+              alt=""
+              className="w-[75%] h-[75%] object-contain"
+            />
+          </div>
+        </div>
+
+        {/* {Right Arrow} */}
+        <div className="absolute right-2 cursor-pointer">
+          <BsArrowRightCircle onClick={nextSlider} size={30} />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default AdSlider;
+
+// {/* Dot */}
+// <div className="flex top-4 justify-center py-2">
+//   {sliderData.map((slide, slideIndex) => {
+//     return <div key={slideIndex} onClick={() => goToSlide(slideIndex)} className="text-2xl cursor-pointer">
+
+//       <RxDotFilled className="fill-red-100" />
+//     </div>;
+//   })}
+// </div>
