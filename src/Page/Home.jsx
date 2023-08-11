@@ -12,7 +12,7 @@ const Home = () => {
   
       <div className="home px-5 lg:px-16">
         {/* Horní sekce popisu a slideru */}
-        <section className=" flex justify-center items-center flex-col md:flex-row gap-4 pt-8 ">
+        <section className=" flex justify-center items-center flex-col md:flex-row gap-4 pt-8 max-w-[1400px] m-auto">
           <div className="w-full h-[350px] ">
             <Banner />
           </div>
@@ -22,7 +22,7 @@ const Home = () => {
         </section>
 
         {/* Slevy banner */}
-        <section className="flex justify-center items-center">
+        <section className="flex justify-center items-center max-w-[1400px] m-auto pt-4">
           <Sale />
         </section>
 
