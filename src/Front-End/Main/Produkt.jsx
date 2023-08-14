@@ -51,7 +51,7 @@ const Produkt = () => {
               key={one.id}
             >
               {/* Vnitřní barva */}
-              <Link className="bg-gradient-to-b rounded-lg from-dark to-primary p-2 sm:p-4 w-full h-full">
+              <Link to={`/category/${one.id}`} className="bg-gradient-to-b rounded-lg from-dark to-primary p-2 sm:p-4 w-full h-full">
                 {/* FAvorite */}
 
                 <div className="flex justify-end">

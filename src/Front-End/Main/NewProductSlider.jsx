@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import useLoadData from "../../Back-End/LoadDataFirebase";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+import { Navigation, Pagination, Scrollbar, A11y, Mousewheel } from 'swiper/modules';
 
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
-
+import "swiper/css/mousewheel"
 // Vlastní
 
 
@@ -38,10 +38,10 @@ const NewProductSlider = () => {
 
   return (
     <Swiper
-      modules={[Navigation, Pagination, Scrollbar, A11y]}
+      modules={[Navigation, Pagination, Scrollbar, A11y, Mousewheel]}
       navigation={true}
       className="productSlider"
-     
+      mousewheel={true}
     
       pagination={{ clickable: true }}
       scrollbar={{clickable: true}}
