@@ -5,6 +5,7 @@ import Navbar from "./Navbar";
 import { GiHamburgerMenu } from "react-icons/gi";
 import MobileNavbar from "./MobileNavbar";
 import { ShopContext } from '../../Back-End/context/ShopContext';
+import AllCategory from "../Main/AllCategory";
 
 const Header = () => {
   const { setIsOpenMenu, isOpenMenu } = useContext(ShopContext);
@@ -28,8 +29,10 @@ const Header = () => {
           />
           {isOpenMenu && (
             <div className="bg-dark absolute mt-2 rounded-md left-0 p-2 z-20 w-full h-screen">
+             
               <div className="flex flex-col items-center justify-center">
               <MobileNavbar />
+              <div><AllCategory onClick={handleHamburgerClick}/></div>
               <div className="mt-8 w-full ">
               <ActionIcon />
               </div>

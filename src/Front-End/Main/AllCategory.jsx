@@ -5,6 +5,12 @@ import { ShopContext } from "../../Back-End/context/ShopContext";
 
 const AllCategory = () => {
   const { setSelectedCategory } = useContext(ShopContext);
+  const { setIsOpenMenu, isOpenMenu } = useContext(ShopContext);
+
+  const handleHamburgerClick = () => {
+    setIsOpenMenu(false);
+    
+  };
 
   return (
     <div className="allCategory w-full h-full">
@@ -17,7 +23,10 @@ const AllCategory = () => {
             <Link
               to={`/category/${category.title}`}
               key={category.id}
-              onClick={() => setSelectedCategory(category.title)}
+              onClick={() => {
+                setSelectedCategory(category.title)
+                handleHamburgerClick()
+              } }
               className=" w-1/5 md:max-h-[170px] rounded-lg grad p-2 md:p-4"
             >
               <div className=" h-[60px] md:h-[120px] flex items-center justify-center   ">
