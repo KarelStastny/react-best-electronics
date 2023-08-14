@@ -27,7 +27,7 @@ const Home = () => {
         </section>
 
         {/* Slider nové produkty */}
-        <section className="flex justify-center items-center">
+        <section className="flex justify-center items-center max-w-[1400px] m-auto mt-4">
           <NewProductSlider />
         </section>
 
