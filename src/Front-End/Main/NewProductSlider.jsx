@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
 import useLoadData from "../../Back-End/LoadDataFirebase";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
+
+// Vlastní
 
 
 
@@ -35,11 +38,13 @@ const NewProductSlider = () => {
 
   return (
     <Swiper
-      modules={[]}
+      modules={[Navigation, Pagination, Scrollbar, A11y]}
       navigation={true}
+      className="productSlider"
+     
     
       pagination={{ clickable: true }}
-      scrollbar={true}
+      scrollbar={{clickable: true}}
       breakpoints={{
         320: {
           slidesPerView: 1,
@@ -72,7 +77,7 @@ const NewProductSlider = () => {
               console.log(one.title);
               return (
                 <SwiperSlide
-                  className="flex flex-col grad rounded-lg justify-center items-center w-1/2 flex-wrap  md:w-1/3 xl:w-1/4 2xl:w-1/5  p-1 sm:p-3 "
+                  className="flex flex-col grad rounded-lg justify-center items-center w-1/2 flex-wrap  md:w-1/3 xl:w-1/4 2xl:w-1/5  mb-9 p-2 sm:p-3 "
                   key={one.id}
                 >
                   {/* Vnitřní barva */}

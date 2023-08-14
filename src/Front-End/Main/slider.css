@@ -1,33 +1,3 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    color: white;
-}
-
-html, 
-body{
-    scroll-behavior: smooth;
-    background-color: #1D1F23;
-}
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@layer base {
-
-  .grad {
-    @apply bg-gradient-to-t from-[#1F2126] to-[#33363D] drop-shadow-2xl;
-  }
-
-}
-
-
 .mainSlider .swiper-pagination-bullets {
   bottom: 1.5rem;
 }
