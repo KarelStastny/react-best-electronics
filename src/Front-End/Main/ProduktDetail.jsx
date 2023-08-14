@@ -17,7 +17,7 @@ const ProduktDetail = () => {
   console.log(product);
 
   return (
-    <div className="w-full h-full mt-8">
+    <div className="w-full h-full mt-8 p-4">
       {product && (
         <div className="w-full h-full">
           <div className=" text-center uppercase font-semibold">

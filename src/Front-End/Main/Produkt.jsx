@@ -51,7 +51,7 @@ const Produkt = () => {
               key={one.id}
             >
               {/* Vnitřní barva */}
-              <Link to={`/product/${one.id}`} className="bg-gradient-to-b rounded-lg from-dark to-primary p-2 sm:p-4 w-full h-full">
+              <div  className="bg-gradient-to-b rounded-lg from-dark to-primary p-2 sm:p-4 w-full h-full">
                 {/* FAvorite */}
 
                 <div className="flex justify-end">
@@ -65,16 +65,16 @@ const Produkt = () => {
                 </div>
 
                 {/* Img */}
-                <div className="md:h-[200px] h-[150px] flex items-center justify-center p-2 md:p-4">
+                <Link to={`/product/${one.id}`} className="md:h-[200px] h-[150px] flex items-center justify-center p-2 md:p-4">
                   <img
                     className=" object-contain h-full mb-4 hover:scale-90 transition-all duration-100"
                     src={one.imageAsset}
                     alt=""
                   />
-                </div>
+                </Link>
 
                 {/* Text */}
-                <div className="uppercase text-xs text-second mb-2">
+                <div  className="uppercase text-xs text-second mb-2">
                   {one.mainCategory}
                 </div>
                 {one.title && one.title.length > 25 ? (
@@ -95,7 +95,7 @@ const Produkt = () => {
                     {parseFloat(one.price).toLocaleString("cs-CZ")} Kč
                   </h3>
                 </div>
-              </Link>
+              </div>
             </div>
           );
         })}
