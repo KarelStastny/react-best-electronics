@@ -70,7 +70,7 @@ const NewProductSlider = () => {
     >
       <div>
         <div className="w-full prodkut">
-          <h1>Nadpis</h1>
+      
 
           <div className="flex flex-warp w-full  ">
             {newProducts.map((one) => {

@@ -6,11 +6,7 @@ const ShopContextProvider = ({ children }) => {
   const [selectedCategory, setSelectedCategory] = useState(null); // Hlavní kategorie
   const [selectedSubcategory, setSelectedSubcategory] = useState(null);
   const [isOpenMenu, setIsOpenMenu] = useState(false);
-  const [isAdminMenuOpen, setIsAdminMenuOpen] = useState(false)
-
-
- 
-
+  const [isAdminMenuOpen, setIsAdminMenuOpen] = useState(false);
 
   // Funkce pro reset filteru
   const resetFilterProducts = () => {
@@ -18,10 +14,7 @@ const ShopContextProvider = ({ children }) => {
     setSelectedSubcategory(null);
   };
 
-
-
-// console.log(favorites);
-
+  // console.log(favorites);
 
   return (
     <ShopContext.Provider
@@ -31,11 +24,11 @@ const ShopContextProvider = ({ children }) => {
         selectedSubcategory,
         setSelectedSubcategory,
         resetFilterProducts,
-   
+
         isOpenMenu,
         setIsOpenMenu,
-        isAdminMenuOpen, 
-        setIsAdminMenuOpen
+        isAdminMenuOpen,
+        setIsAdminMenuOpen,
       }}
     >
       {children}

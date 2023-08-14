@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BsArrowLeftCircle, BsArrowRightCircle } from "react-icons/bs";
+import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 import { RxDotFilled } from "react-icons/rx";
 
 import Img1 from "../../images/AdSliderImage/1.png";
@@ -47,24 +47,24 @@ export const AdSlider = () => {
   };
 
   return (
-    <div className=" grad w-full h-full rounded-2xl ">
+    <div className=" grad w-full h-full rounded-2xl p-4 ">
       {/* Ad container */}
       <div className="flex  items-center justify-center h-full w-full  relative">
         {/* Left Arrow */}
         <div className="absolute left-2 cursor-pointer">
-          <BsArrowLeftCircle onClick={prevSlider} size={30} />
+          <MdKeyboardArrowLeft className="fill-second" onClick={prevSlider} size={40} />
         </div>
 
         {/* Add */}
         <div className="w-full   flex ">
-          <div className="w-[45%]  flex  flex-col items-center mt-8">
+          <div className="w-[45%]  flex  flex-col items-center mt-2 md:mt-8">
             <h2 className="uppercase text-base md:text-lg text-second font-semibold">
               Speciální nabídka
             </h2>
-            <p>Nejlepší produkty </p>
-            <p>
+            <p className=" text-sm md:text-base">Nejlepší produkty </p>
+            <p className=" text-sm md:text-base">
               za{" "}
-              <span className="underline text-second font-bold uppercase text-sm">
+              <span className="underline   md:text-base text-second font-bold uppercase text-sm">
                 nejlepší ceny
               </span>
             </p>
@@ -99,7 +99,7 @@ export const AdSlider = () => {
 
         {/* {Right Arrow} */}
         <div className="absolute right-2 cursor-pointer">
-          <BsArrowRightCircle onClick={nextSlider} size={30} />
+          <MdKeyboardArrowRight className="fill-second" onClick={nextSlider} size={40} />
         </div>
       </div>
     </div>

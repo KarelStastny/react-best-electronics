@@ -9,8 +9,12 @@ import Header from "../Front-End/Header/Header";
 const Home = () => {
   return (
     <main>
-  
       <div className="home px-5 lg:px-16">
+  {/* Hlavní kategorie */}
+  <section className="flex items-center justify-center max-w-[1400px] m-auto mt-4">
+          <AllCategory />
+        </section>
+
         {/* Horní sekce popisu a slideru */}
         <section className=" flex justify-center items-center flex-col md:flex-row gap-4 pt-8 max-w-[1400px] m-auto">
           <div className="w-full h-[350px] ">
@@ -26,20 +30,18 @@ const Home = () => {
           <Sale />
         </section>
 
+
         {/* Slider nové produkty */}
+        <h2 className=" text-center md:text-lg uppercase font-semibold tracking-wide mt-5 mb-3">Nejnovější produkty</h2>
         <section className="flex justify-center items-center max-w-[1400px] m-auto mt-4">
+
+          
           <NewProductSlider />
         </section>
 
-        {/* Hlavní kategorie */}
-        <section className="flex items-center justify-center">
-          <AllCategory />
-        </section>
+      
       </div>
     </main>
-
-
-   
   );
 };
 

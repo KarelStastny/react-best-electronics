@@ -11,11 +11,11 @@ const Banner = () => {
   return (
     <div className="grad h-full  w-full rounded-2xl">
       <div className="   rounded-lg grad p-4 sm:p-6 w-full h-full ">
-        <h1 className="font-semibold text-2xl xl:text-3xl italic">
+        <h1 className="font-semibold text-lg xl:text-3xl italic">
           Nejzajímavější obchod s elektronikou ve{" "} <br />
           <span className="uppercase text-second">vašem městě</span>
         </h1>
-        <p className=" pt-4 pl-2 italic text-justify">
+        <p className=" pt-4 pl-2 italic text-sm md:text-base text-justify">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis
           voluptatum earum illo, ab soluta in. Officiis quos quaerat omnis
           voluptas delectus, qui, maiores !
