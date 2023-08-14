@@ -81,7 +81,7 @@ const NewProductSlider = () => {
                   key={one.id}
                 >
                   {/* Vnitřní barva */}
-                  <Link className="   w-full h-full">
+                  <Link to={`/product/${one.id}`} className="   w-full h-full">
                     {/* FAvorite */}
 
                     <div className="flex justify-between items-center pb-2">

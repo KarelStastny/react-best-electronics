@@ -12,12 +12,14 @@ const AllCategory = () => {
     
   };
 
+ 
   return (
     <div className="allCategory w-full h-full">
       <h2 className=" text-center md:text-lg uppercase font-semibold tracking-wide mb-3">Hlavní Kategorie</h2>
       <div className="  flex  items-center justify-center gap-4  md:flex-row ">
 
         {Categories?.map((category) => {
+           console.log(category);
           return (
             // Předělá url adresu a po kliknutí pošle title do filteru
             <Link
