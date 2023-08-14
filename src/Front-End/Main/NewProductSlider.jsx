@@ -77,7 +77,7 @@ const NewProductSlider = () => {
               console.log(one.title);
               return (
                 <SwiperSlide
-                  className="flex flex-col grad rounded-lg justify-center items-center w-1/2 flex-wrap  md:w-1/3 xl:w-1/4 2xl:w-1/5  mb-9 p-2 sm:p-3 "
+                  className="flex flex-col grad rounded-lg justify-center items-center w-1/2 flex-wrap  md:w-1/3 xl:w-1/4 2xl:w-1/5  mb-12 p-2 sm:p-3 "
                   key={one.id}
                 >
                   {/* Vnitřní barva */}
