@@ -30,41 +30,39 @@ const AddCartContextProvider = ({ children }) => {
 
   // Aktualizuje košík
   const pluseQuantity = (product) => {
-    const updateQuantity = cart.map((item) =>
-      // pokud se id z databáze a na které bylo klinuto rovnají, vem item a zvětš jeho množství pokud ne ponech ho
-      item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
-    );
-    setCart(updateQuantity);
-   
-  };
-
-  const minuseQuantity = (product) => {
-    const updateQuantity = cart.map((item) =>
-      item.id === product.id && item.quantity > 1
-        ? { ...item, quantity: item.quantity - 1 }
-        : item
-    );
-    setCart(updateQuantity);
-   
-  };
-
-  // Aktulizace ceny u jednotlivých produktů
-  const updateProductPrice = (product) => {
-    const updateOnePrice = cart.map((item) => {
+    const updateQuantity = cart.map((item) => {
       if (item.id === product.id) {
-        const updatedItem = { ...item, finalPrice: item.quantity * item.price };
-        console.log(updatedItem.quantity, updatedItem.price, updatedItem.finalPrice);
-        return updatedItem;
+        // navíší množstív
+        const updatedItem = { ...item, quantity: item.quantity + 1 };
+        // Aktualizuje cenu
+        const updateOnePrice = {
+          ...updatedItem,
+          finalPrice: updatedItem.quantity * updatedItem.price,
+        };
+
+        return updateOnePrice;
       } else {
         return item;
       }
     });
-  
-    console.log(updateOnePrice);
-    setCart(updateOnePrice);
+    setCart(updateQuantity);
   };
-  
-  
+
+  const minuseQuantity = (product) => {
+    const updateQuantity = cart.map((item) => {
+      if (item.id === product.id && item.quantity > 1) {
+        const updatedItem = { ...item, quantity: item.quantity - 1 };
+        const updateOnePrice = {
+          ...updatedItem,
+          finalPrice: updatedItem.quantity * updatedItem.price,
+        };
+        return updateOnePrice;
+      } else {
+        return item;
+      }
+    });
+    setCart(updateQuantity);
+  };
 
   //   Délka pole
   const cartLength = cart.length;
@@ -90,7 +88,6 @@ const AddCartContextProvider = ({ children }) => {
         cart,
         pluseQuantity,
         minuseQuantity,
-        updateProductPrice,
       }}
     >
       {children}

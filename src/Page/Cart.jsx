@@ -10,8 +10,9 @@ import AddFavoriteButton from "../Front-End/Main/AddFavoriteButton";
 
 const Cart = () => {
   // const {  } =useContext(ShopContext)
-  const { cart, minuseQuantity,  pluseQuantity, updateProductPrice } = useContext(AddCartContext);
-  const carts = cart
+  const { cart, minuseQuantity, pluseQuantity } =
+    useContext(AddCartContext);
+  const carts = cart;
 
   // console.log(carts);
 
@@ -62,15 +63,25 @@ const Cart = () => {
                 <div className="w-[20%] flex items-center justify-center">
                   <div className="flex items-center justify-between gap-2">
                     {/* Minuse */}
-                    <button onClick={() => {minuseQuantity(one);updateProductPrice(one)}} className=" hover:bg-primary w-5 h-5 rounded-full flex items-center justify-center ">
+                    <button
+                      onClick={() => {
+                        minuseQuantity(one);
+                      }}
+                      className=" hover:bg-primary w-5 h-5 rounded-full flex items-center justify-center "
+                    >
                       <div className=" hover:text-second pb-1">-</div>
                     </button>
                     {/* Qunatity */}
                     <div className="bg-white w-7 h-7 rounded-full flex items-center justify-center ">
-                      <div  className="text-dark">{one.quantity}</div>
+                      <div className="text-dark">{one.quantity}</div>
                     </div>
                     {/* Pluse */}
-                    <button onClick={() => {pluseQuantity(one);updateProductPrice(one)}} className=" hover:bg-primary w-5 h-5 rounded-full flex items-center justify-center">
+                    <button
+                      onClick={() => {
+                        pluseQuantity(one);
+                      }}
+                      className=" hover:bg-primary w-5 h-5 rounded-full flex items-center justify-center"
+                    >
                       <div className=" hover:text-second pb-1">+</div>
                     </button>
                   </div>
