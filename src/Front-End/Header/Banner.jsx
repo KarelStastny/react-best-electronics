@@ -25,18 +25,34 @@ const Banner = () => {
           voluptas delectus, qui, maiores !
         </p>
         <div className="flex items-center justify-center gap-6 mt-4">
-          <i>
+          <a
+            href="https://cs-cz.facebook.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <img className="w-7 cursor-pointer" src={Img1} alt="" />
-          </i>
-          <i>
+          </a>
+          <a
+            href="https://www.instagram.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <img className="w-7 cursor-pointer" src={Img2} alt="" />
-          </i>
-          <i>
+          </a>
+          <a
+            href="https://cz.linkedin.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <img className="w-7 cursor-pointer" src={Img3} alt="" />
-          </i>
-          <i>
+          </a>
+          <a
+            href="https://www.youtube.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <img className="w-7 cursor-pointer" src={Img4} alt="" />
-          </i>
+          </a>
         </div>
         <Link
           onClick={() => {

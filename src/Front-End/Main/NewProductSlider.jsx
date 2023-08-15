@@ -34,7 +34,7 @@ const NewProductSlider = () => {
     loadNewProduct();
   }, [products]);
 
-  console.log(newProducts);
+ 
 
   return (
     <Swiper

@@ -18,7 +18,7 @@ const AllCategory = () => {
       </h2>
       <div className="  flex  items-center justify-center gap-1 md:gap-4 md:flex-row ">
         {Categories?.map((category) => {
-          console.log(category);
+       
           return (
             // Předělá url adresu a po kliknutí pošle title do filteru
             <Link
