@@ -10,10 +10,10 @@ import AddFavoriteButton from "../Front-End/Main/AddFavoriteButton";
 
 const Cart = () => {
   // const {  } =useContext(ShopContext)
-  const { cart } = useContext(AddCartContext);
-  const carts = cart;
+  const { cart, minuseQuantity,  pluseQuantity, updateProductPrice } = useContext(AddCartContext);
+  const carts = cart
 
-  console.log(carts);
+  // console.log(carts);
 
   return (
     <div className="cartPage max-w-2xl m-auto">
@@ -31,7 +31,7 @@ const Cart = () => {
                 <div className="w-[20%] flex items-center justify-center">
                   <div className=" h-[50px] w-[100px] flex items-center justify-center p-1 md:p-1">
                     <img
-                      className=" object-contain h-full mb-4 hover:scale-90 transition-all duration-100"
+                      className=" object-contain h-full  hover:scale-90 transition-all duration-100"
                       src={one.imageAsset}
                       alt=""
                     />
@@ -54,7 +54,7 @@ const Cart = () => {
                 {/* Price */}
                 <div className="w-[20%] flex items-center justify-center">
                   <h3 className="text-second font-semibold text-right text-xs sm:text-base">
-                    {parseFloat(one.price).toLocaleString("cs-CZ")} Kč
+                    {parseFloat(one.finalPrice).toLocaleString("cs-CZ")} Kč
                   </h3>
                 </div>
 
@@ -62,15 +62,15 @@ const Cart = () => {
                 <div className="w-[20%] flex items-center justify-center">
                   <div className="flex items-center justify-between gap-2">
                     {/* Minuse */}
-                    <button className=" hover:bg-primary w-5 h-5 rounded-full flex items-center justify-center ">
+                    <button onClick={() => {minuseQuantity(one);updateProductPrice(one)}} className=" hover:bg-primary w-5 h-5 rounded-full flex items-center justify-center ">
                       <div className=" hover:text-second pb-1">-</div>
                     </button>
                     {/* Qunatity */}
                     <div className="bg-white w-7 h-7 rounded-full flex items-center justify-center ">
-                      <div className="text-dark">{one.quantity}</div>
+                      <div  className="text-dark">{one.quantity}</div>
                     </div>
                     {/* Pluse */}
-                    <button className=" hover:bg-primary w-5 h-5 rounded-full flex items-center justify-center">
+                    <button onClick={() => {pluseQuantity(one);updateProductPrice(one)}} className=" hover:bg-primary w-5 h-5 rounded-full flex items-center justify-center">
                       <div className=" hover:text-second pb-1">+</div>
                     </button>
                   </div>
