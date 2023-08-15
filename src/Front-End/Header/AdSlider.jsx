@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 import { RxDotFilled } from "react-icons/rx";
 
@@ -8,6 +8,7 @@ import Img3 from "../../images/AdSliderImage/3.png";
 import Img4 from "../../images/AdSliderImage/4.png";
 import Img5 from "../../images/AdSliderImage/5.png";
 import { Link } from "react-router-dom";
+import { ShopContext } from "../../Back-End/context/ShopContext";
 
 // data
 const sliderData = [
@@ -30,6 +31,7 @@ const sliderData = [
 
 export const AdSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const { selectedCategory, selectedSubcategory } = useContext(ShopContext);
 
   const prevSlider = () => {
     const isFirstSlide = currentIndex === 0;
@@ -52,7 +54,11 @@ export const AdSlider = () => {
       <div className="flex  items-center justify-center h-full w-full  relative">
         {/* Left Arrow */}
         <div className="absolute left-2 cursor-pointer">
-          <MdKeyboardArrowLeft className="fill-second" onClick={prevSlider} size={40} />
+          <MdKeyboardArrowLeft
+            className="fill-second"
+            onClick={prevSlider}
+            size={40}
+          />
         </div>
 
         {/* Add */}
@@ -68,10 +74,19 @@ export const AdSlider = () => {
                 nejlepší ceny
               </span>
             </p>
-            <Link to={"/category"} className="mt-32">
-              <button className=" py-1 px-2 bg-second text-dark rounded-md font-semibold hover:bg-secondHover">
-                Koupit
-              </button>
+            <Link
+            onClick={async () => {
+              try {
+                await selectedCategory(null);
+                await selectedSubcategory(null);
+              } catch (error) {
+                console.error("Error setting selected category/subcategory:", error);
+              }
+            }}
+              to={"/category"}
+              className="mt-32 py-1 px-2 bg-second text-dark rounded-md font-semibold hover:bg-secondHover "
+            >
+              Koupit
             </Link>
           </div>
           <div className="w-[55%] h-[300px]  flex flex-col items-center justify-center ">
@@ -99,7 +114,11 @@ export const AdSlider = () => {
 
         {/* {Right Arrow} */}
         <div className="absolute right-2 cursor-pointer">
-          <MdKeyboardArrowRight className="fill-second" onClick={nextSlider} size={40} />
+          <MdKeyboardArrowRight
+            className="fill-second"
+            onClick={nextSlider}
+            size={40}
+          />
         </div>
       </div>
     </div>

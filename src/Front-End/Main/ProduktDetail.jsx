@@ -26,6 +26,7 @@ const ProduktDetail = () => {
           </div>
           <div className="flex items-center justify-center gap-4 mt-4">
             <Link
+            className="hover:text-second"
               to={"/category"}
               onClick={() => {
                 setSelectedCategory(product.mainCategory);
@@ -38,6 +39,7 @@ const ProduktDetail = () => {
               <MdKeyboardArrowRight />
             </div>
             <Link
+            className="hover:text-second"
               to={"/category"}
               onClick={() => {
                 setSelectedSubcategory(product.secondCategory);
