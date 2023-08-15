@@ -10,7 +10,7 @@ import AddFavoriteButton from "../Front-End/Main/AddFavoriteButton";
 
 const Cart = () => {
   // const {  } =useContext(ShopContext)
-  const { cart, minuseQuantity, pluseQuantity } =
+  const { cart, minuseQuantity, pluseQuantity, totalPrice } =
     useContext(AddCartContext);
   const carts = cart;
 
@@ -18,7 +18,7 @@ const Cart = () => {
 
   return (
     <div className="cartPage max-w-2xl m-auto">
-      <div className="flex flex-col w-full pt-7 ">
+      <div className="flex flex-col w-full pt-7 min-h-[600px] ">
         {carts.map((one) => {
           return (
             <div
@@ -73,7 +73,7 @@ const Cart = () => {
                     </button>
                     {/* Qunatity */}
                     <div className="bg-white w-7 h-7 rounded-full flex items-center justify-center ">
-                      <div className="text-dark">{one.quantity}</div>
+                      <div className="text-dark font-semibold">{one.quantity}</div>
                     </div>
                     {/* Pluse */}
                     <button
@@ -99,6 +99,12 @@ const Cart = () => {
             </div>
           );
         })}
+        <div className="grad flex mt-4 p-4  rounded-lg w-[350px] m-auto flex-col items-center justify-center">
+          <div className="uppercase font-semibold">Celková částka</div>
+          <div className="text-second">{parseFloat(totalPrice).toLocaleString("cs-CZ")} Kč</div>
+          <button className="bg-second py-1 px-2 rounded-lg mt-4 text-dark font-semibold">Objednat</button>
+        </div>
+        
       </div>
     </div>
   );

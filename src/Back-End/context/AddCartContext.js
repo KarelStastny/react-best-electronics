@@ -1,9 +1,11 @@
-import React, { useState, createContext } from "react";
+import React, { useState, createContext, useEffect } from "react";
 
 export const AddCartContext = createContext();
 
 const AddCartContextProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
+  const [totalPrice, setTotalPrice] = useState(0)
+  
 
   const isProductInCart = (productId) => {
     return cart.some((item) => item.id === productId);
@@ -77,6 +79,17 @@ const AddCartContextProvider = ({ children }) => {
     }
   };
 
+
+  // Celková cena produktů
+  useEffect(() => {
+    const totalPrice = cart.reduce(
+      (total, item) => total + item.price * item.quantity,
+      0
+    );
+    setTotalPrice(totalPrice);
+  }, [cart]);
+  
+
   return (
     <AddCartContext.Provider
       value={{
@@ -88,6 +101,7 @@ const AddCartContextProvider = ({ children }) => {
         cart,
         pluseQuantity,
         minuseQuantity,
+        totalPrice,
       }}
     >
       {children}
