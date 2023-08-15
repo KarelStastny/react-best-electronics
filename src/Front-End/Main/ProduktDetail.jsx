@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useParams, Link } from "react-router-dom";
 import useLoadData from "../../Back-End/LoadDataFirebase"; // Importujte komponentu useLoadData
 import { MdKeyboardArrowRight } from "react-icons/md";
 import AddCartButton from "./AddCartButton";
 import AddFavoriteButton from "./AddFavoriteButton";
+import { ShopContext } from "../../Back-End/context/ShopContext";
 
 const ProduktDetail = () => {
+  const { setSelectedCategory, setSelectedSubcategory } =
+    useContext(ShopContext);
   const { produktId } = useParams();
   const products = useLoadData([]);
 
@@ -13,8 +16,6 @@ const ProduktDetail = () => {
   const product = products.find((one) => {
     return parseInt(one.id) === parseInt(produktId);
   });
-
-  console.log(product);
 
   return (
     <div className="w-full h-full mt-8 p-4">
@@ -24,15 +25,32 @@ const ProduktDetail = () => {
             {product.title}
           </div>
           <div className="flex items-center justify-center gap-4 mt-4">
-            <div>{product.mainCategory}</div>
+            <Link
+              to={"/category"}
+              onClick={() => {
+                setSelectedCategory(product.mainCategory);
+                setSelectedSubcategory(null);
+              }}
+            >
+              {product.mainCategory}
+            </Link>
             <div>
               <MdKeyboardArrowRight />
             </div>
-            <div>{product.secondCategory}</div>
+            <Link
+              to={"/category"}
+              onClick={() => {
+                setSelectedSubcategory(product.secondCategory);
+                setSelectedCategory(product.mainCategory);
+              }}
+            >
+              {product.secondCategory}
+            </Link>
           </div>
           <div className="flex items-center justify-center mt-6">
-            <div className=""><AddFavoriteButton  product={product} /></div>
-            
+            <div className="">
+              <AddFavoriteButton product={product} />
+            </div>
           </div>
           <div className="flex items-center justify-center p-4 max-w-md mt-4  m-auto ">
             <img
