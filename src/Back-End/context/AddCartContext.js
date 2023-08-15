@@ -11,8 +11,11 @@ const AddCartContextProvider = ({ children }) => {
 
   const addToCart = (product) => {
     if (!isProductInCart(product.id)) {
-      setCart((prevCart) => [...prevCart, product]);
-      
+      const updateProduct = {
+        ...product,
+        quantity:1
+      }
+      setCart((prevCart) => [...prevCart, updateProduct ]);
     } else {
       console.log("Produkt je již v košíku.");
     }
@@ -23,23 +26,29 @@ const AddCartContextProvider = ({ children }) => {
   };
 
   //   Délka pole
-const cartLength = cart.length
+  const cartLength = cart.length;
 
-// Prázdné pole
+  // Prázdné pole
 
-const emptyCart = () => {
-    if(cartLength < 1){
-        return false
-    }else{
-        return true
+  const emptyCart = () => {
+    if (cartLength < 1) {
+      return false;
+    } else {
+      return true;
     }
-}
+  };
 
-  
-
-  
   return (
-    <AddCartContext.Provider value={{ addToCart, deleteFromCart, isProductInCart, cartLength, emptyCart, cart  }}>
+    <AddCartContext.Provider
+      value={{
+        addToCart,
+        deleteFromCart,
+        isProductInCart,
+        cartLength,
+        emptyCart,
+        cart,
+      }}
+    >
       {children}
     </AddCartContext.Provider>
   );

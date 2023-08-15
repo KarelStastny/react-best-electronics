@@ -11,14 +11,14 @@ import AddFavoriteButton from "../Front-End/Main/AddFavoriteButton";
 const Cart = () => {
   // const {  } =useContext(ShopContext)
   const { cart } = useContext(AddCartContext);
-  const products = cart;
+  const carts = cart;
 
-  console.log(products);
+  console.log(carts);
 
   return (
     <div className="cartPage max-w-2xl m-auto">
       <div className="flex flex-col w-full pt-7 ">
-        {products.map((one) => {
+        {carts.map((one) => {
           return (
             <div
               className="flex flex-col w-full  justify-center items-center flex-wrap   
@@ -59,7 +59,22 @@ const Cart = () => {
                 </div>
 
                 {/* Quantity */}
-                <div className="w-[20%] flex items-center justify-center">xxxxxxxxx</div>
+                <div className="w-[20%] flex items-center justify-center">
+                  <div className="flex items-center justify-between gap-2">
+                    {/* Minuse */}
+                    <button className=" hover:bg-primary w-5 h-5 rounded-full flex items-center justify-center ">
+                      <div className=" hover:text-second pb-1">-</div>
+                    </button>
+                    {/* Qunatity */}
+                    <div className="bg-white w-7 h-7 rounded-full flex items-center justify-center ">
+                      <div className="text-dark">{one.quantity}</div>
+                    </div>
+                    {/* Pluse */}
+                    <button className=" hover:bg-primary w-5 h-5 rounded-full flex items-center justify-center">
+                      <div className=" hover:text-second pb-1">+</div>
+                    </button>
+                  </div>
+                </div>
 
                 {/* Delete Button */}
                 <div className="w-[5%] flex items-center justify-center">
