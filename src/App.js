@@ -10,6 +10,7 @@ import Admin from "./Page/Admin";
 import Favorite from "./Page/Favorite";
 import Cart from "./Page/Cart";
 import ProduktDetail from "./Front-End/Main/ProduktDetail";
+import Order from "./Page/Order";
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
           <Route path="/admin" element={<Admin />} />
           <Route path="/favorite" element={<Favorite />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/order" element={<Order />} />
           <Route path="product/:produktId" element={<ProduktDetail />} />
         </Routes>
       </main>

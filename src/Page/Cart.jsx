@@ -102,7 +102,8 @@ const Cart = () => {
         <div className="grad flex mt-4 p-4  rounded-lg w-[350px] m-auto flex-col items-center justify-center">
           <div className="uppercase font-semibold">Celková částka</div>
           <div className="text-second">{parseFloat(totalPrice).toLocaleString("cs-CZ")} Kč</div>
-          <button className="bg-second py-1 px-2 rounded-lg mt-4 text-dark font-semibold">Objednat</button>
+   
+          <Link to={"/order"} className="bg-second py-1 px-2 rounded-lg mt-4 text-dark font-semibold">Objednat</Link>
         </div>
         
       </div>
