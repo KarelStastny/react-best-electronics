@@ -20,7 +20,7 @@ import AddCartButton from "./AddCartButton";
 
 const NewProductSlider = () => {
   const [newProducts, setNewProducts] = useState([]);
-  const products = useLoadData();
+  const {products} = useLoadData();
 
   // Filter new product
   useEffect(() => {

@@ -10,7 +10,7 @@ const ProduktDetail = () => {
   const { setSelectedCategory, setSelectedSubcategory } =
     useContext(ShopContext);
   const { produktId } = useParams();
-  const products = useLoadData([]);
+  const {products} = useLoadData([]);
 
   // Vyfiltrování správný produkt do stránky
   const product = products.find((one) => {

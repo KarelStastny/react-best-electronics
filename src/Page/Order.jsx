@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AddCartContext } from "../Back-End/context/AddCartContext";
 import { MdLocalGasStation } from "react-icons/md";
+import { ShopFirestore, ShopStorage } from "../Back-End/firebase/config";
 
 const Order = () => {
   const { cart, totalPrice, setCart, ordresRecevied, setOrdersReceived } =
@@ -62,8 +63,8 @@ const Order = () => {
     };
 
     try {
-      const updateAllOrders = [...ordresRecevied, allOrderInfo];
-      await setOrdersReceived(updateAllOrders);
+    //   const updateAllOrders = [...ordresRecevied, allOrderInfo];
+      await ShopFirestore.collection("ordersRecevied").add(allOrderInfo)
 
     //   Vyprázdnění políček
       setUserName("");

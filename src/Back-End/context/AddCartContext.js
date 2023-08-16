@@ -4,7 +4,7 @@ export const AddCartContext = createContext();
 
 const AddCartContextProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
-  const [ordresRecevied, setOrdersReceived] = useState([])
+  // const [ordresRecevied, setOrdersReceived] = useState([])
   const [totalPrice, setTotalPrice] = useState(0);
 
   const isProductInCart = (productId) => {
@@ -100,8 +100,8 @@ const AddCartContextProvider = ({ children }) => {
         minuseQuantity,
         totalPrice,
         setCart,
-        ordresRecevied,
-        setOrdersReceived,
+        // ordresRecevied,
+        // setOrdersReceived,
 
       }}
     >

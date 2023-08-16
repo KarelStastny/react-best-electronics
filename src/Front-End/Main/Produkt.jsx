@@ -9,7 +9,7 @@ import AddFavoriteButton from "./AddFavoriteButton";
 const Produkt = () => {
   const { selectedCategory, selectedSubcategory } = useContext(ShopContext);
 
-  const products = useLoadData();
+  const {products} = useLoadData();
 
   // Filter produktů
 
