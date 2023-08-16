@@ -3,24 +3,19 @@ import { AddCartContext } from "../Back-End/context/AddCartContext";
 import { MdLocalGasStation } from "react-icons/md";
 
 const Order = () => {
-    const { cart, totalPrice, setCart } = useContext(AddCartContext);
+    const { cart, totalPrice, setCart, ordresRecevied, setOrdersReceived } = useContext(AddCartContext);
   const [userName, setUserName] = useState("");
   const [userSurName, setSurName] = useState("");
-  const [userPSC, seUserPSC] = useState("");
+  const [userPSC, setUserPSC] = useState("");
   const [userStreet, setUserStreet] = useState("");
   const [userCity, setUserCity] = useState("");
   const [userEmail, setUserEmail] = useState("");
   const [userTel, setUserTel] = useState("");
-  const [userStreetNumber, userSetStreetNumber] = useState("");
-
-// funkce pro aktualizace košíku
-const updateCart = (updatedCart) => {
-    setCart(updatedCart)
-}
+  const [userStreetNumber, setUserStreetNumber] = useState("");
 
 
   //   Odeslání formuláře
-  const submitForm = (e) => {
+  const submitForm  = async (e) => {
     e.preventDefault();
 
     //  Kontrola vyplnění všech polí
@@ -49,17 +44,47 @@ const updateCart = (updatedCart) => {
         userEmail: userEmail,
         userTel: userTel,
         userStreetNumber: userStreetNumber,
+        id: `${Date.now()}`
        
     }
 
-    // Přidá údaje k objednávce
-    const updatedCart = [...cart, allUserInfo]
-    updateCart(updatedCart)
- 
+    // Spojí data dohromaddy
+    const allOrderInfo = {
+        userInfo: allUserInfo,
+        orderInfo: cart,
+        totalPrice:totalPrice,
+        id: `${Date.now()}`
+    }
+
+    try{
+        const   updateAllOrders  =  [...ordresRecevied, allOrderInfo]
+        await setOrdersReceived(updateAllOrders)
+
+        // Vyprázdnění políček
+        // setUserName("");
+        // setSurName("");
+        // setUserPSC("");
+        // setUserStreet("");
+        // setUserCity("");
+        // setUserEmail("");
+        // setUserTel("");
+        // setUserStreetNumber("");
+
+        // Vyprázdnění košíku
+        // setCart(null)
+
+    }catch{
+        console.log("Chyba v odeslání objednávky");
+    }
+
+ console.log(ordresRecevied);
+   
+
     
   };
 
-  console.log(cart);
+  
+
 
 
 
@@ -102,7 +127,7 @@ const updateCart = (updatedCart) => {
             type="text"
             placeholder="popisné číslo"
             value={userStreetNumber}
-            onChange={(e) => userSetStreetNumber(e.target.value)}
+            onChange={(e) => setUserStreetNumber(e.target.value)}
           />
         </div>
         <div className="flex flex-col md:flex-row gap-2 md:gap-4 w-full">
@@ -111,7 +136,7 @@ const updateCart = (updatedCart) => {
             type="text"
             placeholder="PSČ"
             value={userPSC}
-            onChange={(e) => seUserPSC(e.target.value)}
+            onChange={(e) => setUserPSC(e.target.value)}
           />
           <input
             className="w-full h-full p-1 md:p-2 bg-primary border-b-2 border-second outline-none"

@@ -80,6 +80,14 @@ const ActionIcon = () => {
                 >
                   Admin
                 </Link>
+
+                <Link
+                  onClick={linkMenu}
+                  className="hover:bg-second px-2 py-1 transition-all duration-200 ease-in-out hover:text-black font-semibold rounded-md "
+                  to="/adminOrder"
+                >
+                  Přijaté objednávky
+                </Link>
               </ul>
             </div>
           )}
