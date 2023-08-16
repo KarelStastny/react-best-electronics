@@ -3,7 +3,8 @@ import { AddCartContext } from "../Back-End/context/AddCartContext";
 import { MdLocalGasStation } from "react-icons/md";
 
 const Order = () => {
-    const { cart, totalPrice, setCart, ordresRecevied, setOrdersReceived } = useContext(AddCartContext);
+  const { cart, totalPrice, setCart, ordresRecevied, setOrdersReceived } =
+    useContext(AddCartContext);
   const [userName, setUserName] = useState("");
   const [userSurName, setSurName] = useState("");
   const [userPSC, setUserPSC] = useState("");
@@ -12,10 +13,16 @@ const Order = () => {
   const [userEmail, setUserEmail] = useState("");
   const [userTel, setUserTel] = useState("");
   const [userStreetNumber, setUserStreetNumber] = useState("");
+  const [sentOrder, setSentOrder] =  useState(false)
+
+  // Funkce pro skrytí oznámení úspěšné objednávky
+  const hideSentOrder = () => {
+    setSentOrder(false);
+  };
 
 
   //   Odeslání formuláře
-  const submitForm  = async (e) => {
+  const submitForm = async (e) => {
     e.preventDefault();
 
     //  Kontrola vyplnění všech polí
@@ -33,60 +40,53 @@ const Order = () => {
       return;
     }
 
-
     // VYtvoření nového pole
     const allUserInfo = {
-        userName: userName,
-        userSurName: userSurName,
-        userPSC: userPSC,
-        userStreet: userStreet,
-        userCity: userCity,
-        userEmail: userEmail,
-        userTel: userTel,
-        userStreetNumber: userStreetNumber,
-        id: `${Date.now()}`
-       
-    }
+      userName: userName,
+      userSurName: userSurName,
+      userPSC: userPSC,
+      userStreet: userStreet,
+      userCity: userCity,
+      userEmail: userEmail,
+      userTel: userTel,
+      userStreetNumber: userStreetNumber,
+      id: `${Date.now()}`,
+    };
 
     // Spojí data dohromaddy
     const allOrderInfo = {
-        userInfo: allUserInfo,
-        orderInfo: cart,
-        totalPrice:totalPrice,
-        id: `${Date.now()}`
+      userInfo: allUserInfo,
+      orderInfo: cart,
+      totalPrice: totalPrice,
+      id: `${Date.now()}`,
+    };
+
+    try {
+      const updateAllOrders = [...ordresRecevied, allOrderInfo];
+      await setOrdersReceived(updateAllOrders);
+
+    //   Vyprázdnění políček
+      setUserName("");
+      setSurName("");
+      setUserPSC("");
+      setUserStreet("");
+      setUserCity("");
+      setUserEmail("");
+      setUserTel("");
+      setUserStreetNumber("");
+
+      // Vyprázdnění košíku
+      setCart([])
+
+    //   Oznámení o objednávce
+    setSentOrder(true)
+    setTimeout(hideSentOrder, 5000)
+    } catch {
+      console.log("Chyba v odeslání objednávky");
     }
 
-    try{
-        const   updateAllOrders  =  [...ordresRecevied, allOrderInfo]
-        await setOrdersReceived(updateAllOrders)
-
-        // Vyprázdnění políček
-        // setUserName("");
-        // setSurName("");
-        // setUserPSC("");
-        // setUserStreet("");
-        // setUserCity("");
-        // setUserEmail("");
-        // setUserTel("");
-        // setUserStreetNumber("");
-
-        // Vyprázdnění košíku
-        // setCart(null)
-
-    }catch{
-        console.log("Chyba v odeslání objednávky");
-    }
-
- console.log(ordresRecevied);
-   
-
-    
+    console.log(ordresRecevied);
   };
-
-  
-
-
-
 
   return (
     <div>
@@ -175,6 +175,15 @@ const Order = () => {
           </button>
         </div>
       </form>
+      
+      {/* Info po odeslání objednávky */}
+      {sentOrder && 
+              <div className=" flex items-center justify-center m-4 ">
+              <h2 className="grad p-2 rounded-md text-green-500">Objednávka byla úspěšně odeslána</h2>
+          </div>
+      }
+
+
     </div>
   );
 };
