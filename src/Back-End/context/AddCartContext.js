@@ -4,8 +4,7 @@ export const AddCartContext = createContext();
 
 const AddCartContextProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
-  const [totalPrice, setTotalPrice] = useState(0)
-  
+  const [totalPrice, setTotalPrice] = useState(0);
 
   const isProductInCart = (productId) => {
     return cart.some((item) => item.id === productId);
@@ -70,7 +69,6 @@ const AddCartContextProvider = ({ children }) => {
   const cartLength = cart.length;
 
   // Prázdné pole
-
   const emptyCart = () => {
     if (cartLength < 1) {
       return false;
@@ -78,7 +76,6 @@ const AddCartContextProvider = ({ children }) => {
       return true;
     }
   };
-
 
   // Celková cena produktů
   useEffect(() => {
@@ -88,7 +85,6 @@ const AddCartContextProvider = ({ children }) => {
     );
     setTotalPrice(totalPrice);
   }, [cart]);
-  
 
   return (
     <AddCartContext.Provider
