@@ -98,6 +98,7 @@ const AddCartContextProvider = ({ children }) => {
         pluseQuantity,
         minuseQuantity,
         totalPrice,
+        setCart,
       }}
     >
       {children}
