@@ -67,7 +67,7 @@ const NewProduct = () => {
     }
 
     // Vytvoření nového objektu
-    const newItem = {
+    const newItemWithoutId = {
       title: title,
       mainCategory: mainCategory,
       secondCategory: secondCategory,
@@ -77,12 +77,23 @@ const NewProduct = () => {
       newProduct: newProduct,
       imageAsset: imageAsset,
       visible: false,
-      id: `${Date.now()}`
     };
 
     try {
       // odeslání produktu do databáze
-      await ShopFirestore.collection("products").add(newItem);
+      const docRef = await ShopFirestore.collection("products").add(
+        newItemWithoutId
+      );
+
+      // Získat automaticky vygenerované Id z firestore
+
+      const newItem = {
+        ...newItemWithoutId,
+        id: docRef.id,
+      };
+
+      // aktualizovat produtkt
+      await docRef.update(newItem);
 
       // Vyprázdnění políček
       setTitle("");
@@ -100,10 +111,11 @@ const NewProduct = () => {
 
   return (
     <div className="newProducts w-full h-screen">
-      
       <div className=" flex flex-col items-center justify-center h-full">
         {/* Formulář pro odeslání Dat do databáze */}
-        <h2 className="font-semibold text-2xl md:text-4xl mb-4">Nový <span className="text-second">produkt</span> </h2>
+        <h2 className="font-semibold text-2xl md:text-4xl mb-4">
+          Nový <span className="text-second">produkt</span>{" "}
+        </h2>
         <form
           onSubmit={submitForm}
           className="flex flex-col gap-2 w-full items-center"
@@ -155,8 +167,8 @@ const NewProduct = () => {
             </select>
           )}
 
-                    {/* Nový produkt */}
-                    <select
+          {/* Nový produkt */}
+          <select
             value={newProduct}
             onChange={(e) => setNewProduct(e.target.value)}
             className="text-black w-[80%] md:w-[50%] lg:w-[35%] p-2 pl-4 rounded-md outline-none"
@@ -199,13 +211,20 @@ const NewProduct = () => {
             className="text-black w-[80%] md:w-[50%] lg:w-[35%] p-2 pl-4 rounded-md outline-none h-52"
           />
 
-
-
           {/* Obrázek */}
-          <input type="file" name="uploadimage" onChange={uploadImage} className="cursor-pointer"  />
+          <input
+            type="file"
+            name="uploadimage"
+            onChange={uploadImage}
+            className="cursor-pointer"
+          />
 
           {/* Odesílací tlačítko */}
-          <input type="submit" value="Nahrát produkt" className="bg-lightWhite py-2 px-4 rounded-lg mt-4 text-dark font-semibold hover:bg-second transition-all duration-100 cursor-pointer"/>
+          <input
+            type="submit"
+            value="Nahrát produkt"
+            className="bg-lightWhite py-2 px-4 rounded-lg mt-4 text-dark font-semibold hover:bg-second transition-all duration-100 cursor-pointer"
+          />
         </form>
       </div>
     </div>

@@ -26,7 +26,7 @@ const NewProductSlider = () => {
   useEffect(() => {
     const loadNewProduct = async () => {
       const filtredProducts = products.filter(
-        (one) => one.newProduct == "true"
+        (one) => one.newProduct == "true" && one.visible === true
       );
       setNewProducts(filtredProducts);
     };

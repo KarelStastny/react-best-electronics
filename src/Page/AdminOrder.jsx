@@ -6,8 +6,6 @@ const AdminOrder = () => {
 //   const { ordresRecevied } = useContext(AddCartContext);
   const {products, ordresRecevied} = useLoadData()
 
-  console.log(ordresRecevied);
-  console.log(products);
 
   return (
     <div className="max-w-[1240px] m-auto">
