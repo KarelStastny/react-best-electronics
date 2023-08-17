@@ -12,9 +12,11 @@ const ProduktDetail = () => {
   const { produktId } = useParams();
   const { products } = useLoadData([]);
 
+  console.log(products);
+
   // Vyfiltrování správný produkt do stránky
   const product = products.find((one) => {
-    return parseInt(one.id) === parseInt(produktId);
+    return one.id === produktId;
   });
 
   return (
