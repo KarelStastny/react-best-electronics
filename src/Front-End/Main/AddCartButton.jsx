@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { motion } from "framer-motion";
 import { MdOutlineShoppingCart, MdDelete } from "react-icons/md";
 import { AddCartContext } from "../../Back-End/context/AddCartContext";
 
@@ -17,15 +18,17 @@ const AddCartButton = ({ product }) => {
   return (
     <div className="addcart w-full ">
       {isProductInCart(product.id) ? (
-        <button
+        <motion.button
+          whileTap={{ scale: 0.75 }}
           onClick={handleDeleteToCart}
           className="flex items-center bg-second py-1 px-2 rounded-lg"
         >
           {/* <span className="mr-1 md:mr-2 text-dark font-semibold text-xs sm:text-base">Remove</span> */}
           <MdDelete className="fill-dark text-[15px] sm:text-[20px]" />
-        </button>
+        </motion.button>
       ) : (
-        <button
+        <motion.button
+          whileTap={{ scale: 0.75 }}
           onClick={handleAddToCart}
           className="flex items-center bg-second py-1 px-2 rounded-lg"
         >
@@ -33,7 +36,7 @@ const AddCartButton = ({ product }) => {
             Přidat
           </span>
           <MdOutlineShoppingCart className="fill-dark text-[15px] sm:text-[20px]" />
-        </button>
+        </motion.button>
       )}
     </div>
   );

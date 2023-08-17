@@ -7,6 +7,7 @@ import { AddCartContext } from "../Back-End/context/AddCartContext";
 import { Link } from "react-router-dom";
 import AddCartButton from "../Front-End/Main/AddCartButton";
 import AddFavoriteButton from "../Front-End/Main/AddFavoriteButton";
+import { motion } from "framer-motion";
 
 const Cart = () => {
   // const {  } =useContext(ShopContext)
@@ -63,14 +64,15 @@ const Cart = () => {
                 <div className="w-[20%] flex items-center justify-center">
                   <div className="flex items-center justify-between gap-2">
                     {/* Minuse */}
-                    <button
+                    <motion.button
+                    whileTap={{ scale: 0.9 }}
                       onClick={() => {
                         minuseQuantity(one);
                       }}
                       className=" hover:bg-primary w-5 h-5 rounded-full flex items-center justify-center "
                     >
                       <div className=" hover:text-second pb-1">-</div>
-                    </button>
+                    </motion.button>
                     {/* Qunatity */}
                     <div className="bg-white w-7 h-7 rounded-full flex items-center justify-center ">
                       <div className="text-dark font-semibold">{one.quantity}</div>

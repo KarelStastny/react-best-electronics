@@ -74,7 +74,7 @@ const NewProductSlider = () => {
             {newProducts.map((one) => {
               return (
                 <SwiperSlide
-                  className="flex flex-col  justify-center items-center w-1/2 flex-wrap  md:w-1/3 xl:w-1/4 2xl:w-1/5 md:min-w-[250px]  p-1 sm:p-3  grad rounded-lg "
+                  className="flex flex-col  justify-center items-center w-1/2 flex-wrap mb-12  md:w-1/3 xl:w-1/4 2xl:w-1/5 md:min-w-[250px]  p-1 sm:p-3  grad rounded-lg "
                   key={one.id}
                 >
                   {/* Vnitřní barva */}
