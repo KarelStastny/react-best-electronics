@@ -14,13 +14,12 @@ const Order = () => {
   const [userEmail, setUserEmail] = useState("");
   const [userTel, setUserTel] = useState("");
   const [userStreetNumber, setUserStreetNumber] = useState("");
-  const [sentOrder, setSentOrder] =  useState(false)
+  const [sentOrder, setSentOrder] = useState(false);
 
   // Funkce pro skrytí oznámení úspěšné objednávky
   const hideSentOrder = () => {
     setSentOrder(false);
   };
-
 
   //   Odeslání formuláře
   const submitForm = async (e) => {
@@ -63,10 +62,10 @@ const Order = () => {
     };
 
     try {
-    //   const updateAllOrders = [...ordresRecevied, allOrderInfo];
-      await ShopFirestore.collection("ordersRecevied").add(allOrderInfo)
+      //   const updateAllOrders = [...ordresRecevied, allOrderInfo];
+      await ShopFirestore.collection("ordersRecevied").add(allOrderInfo);
 
-    //   Vyprázdnění políček
+      //   Vyprázdnění políček
       setUserName("");
       setSurName("");
       setUserPSC("");
@@ -77,11 +76,11 @@ const Order = () => {
       setUserStreetNumber("");
 
       // Vyprázdnění košíku
-      setCart([])
+      setCart([]);
 
-    //   Oznámení o objednávce
-    setSentOrder(true)
-    setTimeout(hideSentOrder, 5000)
+      //   Oznámení o objednávce
+      setSentOrder(true);
+      setTimeout(hideSentOrder, 5000);
     } catch {
       console.log("Chyba v odeslání objednávky");
     }
@@ -176,15 +175,15 @@ const Order = () => {
           </button>
         </div>
       </form>
-      
+
       {/* Info po odeslání objednávky */}
-      {sentOrder && 
-              <div className=" flex items-center justify-center m-4 ">
-              <h2 className="grad p-2 rounded-md text-green-500">Objednávka byla úspěšně odeslána</h2>
-          </div>
-      }
-
-
+      {sentOrder && (
+        <div className=" flex items-center justify-center m-4 ">
+          <h2 className="grad p-2 rounded-md text-green-500">
+            Objednávka byla úspěšně odeslána
+          </h2>
+        </div>
+      )}
     </div>
   );
 };

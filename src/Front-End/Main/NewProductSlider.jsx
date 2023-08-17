@@ -1,18 +1,21 @@
 import React, { useEffect, useState } from "react";
 import useLoadData from "../../Back-End/LoadDataFirebase";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Scrollbar, A11y, Mousewheel } from 'swiper/modules';
+import {
+  Navigation,
+  Pagination,
+  Scrollbar,
+  A11y,
+  Mousewheel,
+} from "swiper/modules";
 
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
-import "swiper/css/mousewheel"
+import "swiper/css/mousewheel";
 // Vlastní
-
-
-
 
 import { Link } from "react-router-dom";
 import AddFavoriteButton from "./AddFavoriteButton";
@@ -20,7 +23,7 @@ import AddCartButton from "./AddCartButton";
 
 const NewProductSlider = () => {
   const [newProducts, setNewProducts] = useState([]);
-  const {products} = useLoadData();
+  const { products } = useLoadData();
 
   // Filter new product
   useEffect(() => {
@@ -34,17 +37,14 @@ const NewProductSlider = () => {
     loadNewProduct();
   }, [products]);
 
- 
-
   return (
     <Swiper
       modules={[Navigation, Pagination, Scrollbar, A11y, Mousewheel]}
       navigation={true}
       className="productSlider"
       mousewheel={true}
-    
       pagination={{ clickable: true }}
-      scrollbar={{clickable: true}}
+      scrollbar={{ clickable: true }}
       breakpoints={{
         320: {
           slidesPerView: 1,
@@ -69,19 +69,16 @@ const NewProductSlider = () => {
       }}
     >
       <div>
-        <div className="w-full prodkut">
-      
-
+        <div className="w-full newprodkut">
           <div className="flex flex-warp w-full  ">
             {newProducts.map((one) => {
-            
               return (
                 <SwiperSlide
-                  className="flex flex-col grad rounded-lg justify-center items-center w-1/2 flex-wrap  md:w-1/3 xl:w-1/4 2xl:w-1/5  mb-12 p-2 sm:p-3 "
+                  className="flex flex-col  justify-center items-center w-1/2 flex-wrap  md:w-1/3 xl:w-1/4 2xl:w-1/5 md:min-w-[250px]  p-1 sm:p-3  grad rounded-lg "
                   key={one.id}
                 >
                   {/* Vnitřní barva */}
-                  <div  className="   w-full h-full">
+                  <div className="   w-full h-full">
                     {/* FAvorite */}
 
                     <div className="flex justify-between items-center pb-2">
@@ -93,30 +90,30 @@ const NewProductSlider = () => {
                         <AddFavoriteButton product={one} />
                       </div>
                     </div>
-                <Link to={`/product/${one.id}`}>
-                    {/* Img */}
-                    <div className="md:h-[200px] h-[150px] flex items-center justify-center p-2 md:p-4">
-                      <img
-                        className=" object-contain h-full mb-4 hover:scale-90 transition-all duration-100"
-                        src={one.imageAsset}
-                        alt=""
-                      />
-                    </div>
+                    <Link to={`/product/${one.id}`}>
+                      {/* Img */}
+                      <div className="md:h-[200px] h-[150px] flex items-center justify-center p-2 md:p-4">
+                        <img
+                          className=" object-contain h-full mb-4 hover:scale-90 transition-all duration-100"
+                          src={one.imageAsset}
+                          alt=""
+                        />
+                      </div>
 
-                    {/* Text */}
-                    <div className="uppercase text-xs text-second mb-2">
-                      {one.mainCategory}
-                    </div>
-                    {one.title && one.title.length > 25 ? (
-                      <h2 className="font-semibold text-xs md:text-sm mb-6">
-                        {one.title.substring(0, 25)}...
-                      </h2>
-                    ) : (
-                      <h2 className="font-semibold text-xs md:text-sm mb-6">
-                        {one.title}
-                      </h2>
-                    )}
-</Link>
+                      {/* Text */}
+                      <div className="uppercase text-xs text-second mb-2">
+                        {one.mainCategory}
+                      </div>
+                      {one.title && one.title.length > 25 ? (
+                        <h2 className="font-semibold text-xs md:text-sm mb-6">
+                          {one.title.substring(0, 25)}...
+                        </h2>
+                      ) : (
+                        <h2 className="font-semibold text-xs md:text-sm mb-6">
+                          {one.title}
+                        </h2>
+                      )}
+                    </Link>
                     <div className="flex justify-between items-center">
                       <button>
                         <AddCartButton product={one} />

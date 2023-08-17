@@ -46,7 +46,7 @@ const ActionIcon = () => {
         </Link>
 
         {/* Košík */}
-        <Link to={"/cart"} className="relative">
+        <Link to={"/cart"} onClick={favoriteMenu} className="relative">
           <MdOutlineShoppingCart className="text-[35px] p-[1px] hover:fill-second rounded-md hover: transition-all duration-100 ease-in-out cursor-pointer" />
           {/* Zobrazení položek */}
 

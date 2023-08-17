@@ -5,8 +5,8 @@ import { MdAutoAwesomeMosaic } from "react-icons/md";
 
 const Admin = () => {
   const { products } = useLoadData();
- 
-console.log(products);
+
+  console.log(products);
 
   // Aktualizace stavu v databázi
   const toggleVisibility = async (productId) => {
@@ -20,14 +20,11 @@ console.log(products);
       });
 
       // Automatické obnovení stránky
-       window.location.reload();
-
-
+      window.location.reload();
     } catch (error) {
       console.error("Chyba při aktualizaci viditelnosti:", error);
     }
   };
-
 
   return (
     <div>
@@ -63,6 +60,9 @@ console.log(products);
                 <p>
                   <span>{product.secondCategory}</span>
                 </p>
+                <p>
+                  <span>{product.newProduct}</span>
+                </p>
               </div>
 
               {/* Krátký text */}
@@ -89,7 +89,6 @@ console.log(products);
               {/* Tlačítka */}
               <div className="w-[10%]">
                 {product.visible ? (
-                  
                   <button
                     onClick={() => {
                       toggleVisibility(product.id);

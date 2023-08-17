@@ -75,14 +75,17 @@ export const AdSlider = () => {
               </span>
             </p>
             <Link
-            onClick={async () => {
-              try {
-                await selectedCategory(null);
-                await selectedSubcategory(null);
-              } catch (error) {
-                console.error("Error setting selected category/subcategory:", error);
-              }
-            }}
+              onClick={async () => {
+                try {
+                  await selectedCategory(null);
+                  await selectedSubcategory(null);
+                } catch (error) {
+                  console.error(
+                    "Error setting selected category/subcategory:",
+                    error
+                  );
+                }
+              }}
               to={"/category"}
               className="mt-32 py-1 px-2 bg-second text-dark rounded-md font-semibold hover:bg-secondHover "
             >

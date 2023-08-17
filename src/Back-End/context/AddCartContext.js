@@ -102,7 +102,6 @@ const AddCartContextProvider = ({ children }) => {
         setCart,
         // ordresRecevied,
         // setOrdersReceived,
-
       }}
     >
       {children}

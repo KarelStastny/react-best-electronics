@@ -15,18 +15,28 @@ const Sale = () => {
         <div className=" hidden w-1/5 md:flex items-center flex-col justify-center">
           <p className="text-xl text-second">Sleva</p>
           <p className="text-xs">Pouze tento víkend</p>
-          <p className="text-lg font-semibold "> <span className="text-second">20%</span> na vše</p>
+          <p className="text-lg font-semibold ">
+            {" "}
+            <span className="text-second">20%</span> na vše
+          </p>
         </div>
         {/* Img */}
         <div className="hidden md:flex w-1/5 md:w-1/5  items-center flex-col justify-center">
-          <p className="uppercase text-sm md:text-2xl text-center">Speciální nabídka</p>
-          <p className="uppercase text-xs md:text-md mt-4 px-4 py-1 rounded-full font-bold bg-second text-dark tracking-wider">Super</p>
+          <p className="uppercase text-sm md:text-2xl text-center">
+            Speciální nabídka
+          </p>
+          <p className="uppercase text-xs md:text-md mt-4 px-4 py-1 rounded-full font-bold bg-second text-dark tracking-wider">
+            Super
+          </p>
         </div>
         {/* Sale */}
         <div className="w-1/2 md:w-1/5 flex items-center flex-col justify-center">
           <p className="text-xl text-second">Sleva</p>
           <p className="text-xs">Pouze tento víkend</p>
-          <p className="text-lg font-semibold "> <span className="text-second">20%</span> na vše</p>
+          <p className="text-lg font-semibold ">
+            {" "}
+            <span className="text-second">20%</span> na vše
+          </p>
         </div>
         {/* Img */}
         <div className="w-1/2 md:w-1/5  flex items-center flex-col justify-center">

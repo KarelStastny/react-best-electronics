@@ -3,7 +3,8 @@ import { MdFavorite, MdFavoriteBorder } from "react-icons/md";
 import { AddFavoriteContext } from "../../Back-End/context/AddFavoriteContext";
 
 const AddFavoriteButton = ({ product }) => {
-  const { addToFavorite, deleteFromFavorite, isProductInFavorite } = useContext(AddFavoriteContext);
+  const { addToFavorite, deleteFromFavorite, isProductInFavorite } =
+    useContext(AddFavoriteContext);
 
   const handleAddToFavorite = () => {
     addToFavorite(product);
@@ -16,9 +17,15 @@ const AddFavoriteButton = ({ product }) => {
   return (
     <div className="addcart w-full">
       {isProductInFavorite(product.id) ? (
-        <MdFavorite onClick={handleDeleteToFavorite} className="text-[20px] fill-red-600 cursor-pointer" />
+        <MdFavorite
+          onClick={handleDeleteToFavorite}
+          className="text-[20px] fill-red-600 cursor-pointer"
+        />
       ) : (
-        <MdFavoriteBorder onClick={handleAddToFavorite} className="text-[20px] cursor-pointer" />
+        <MdFavoriteBorder
+          onClick={handleAddToFavorite}
+          className="text-[20px] cursor-pointer"
+        />
       )}
     </div>
   );

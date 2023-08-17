@@ -10,8 +10,8 @@ const Home = () => {
   return (
     <main>
       <div className="home px-5 lg:px-16">
-  {/* Hlavní kategorie */}
-  <section className="flex items-center justify-center max-w-[1400px] m-auto mt-4">
+        {/* Hlavní kategorie */}
+        <section className="flex items-center justify-center max-w-[1400px] m-auto mt-4">
           <AllCategory />
         </section>
 
@@ -30,16 +30,13 @@ const Home = () => {
           <Sale />
         </section>
 
-
         {/* Slider nové produkty */}
-        <h2 className=" text-center md:text-lg uppercase font-semibold tracking-wide mt-5 mb-3">Nejnovější produkty</h2>
+        <h2 className=" text-center md:text-lg uppercase font-semibold tracking-wide mt-5 mb-3">
+          Nejnovější produkty
+        </h2>
         <section className="flex justify-center items-center max-w-[1400px] m-auto mt-4">
-
-          
           <NewProductSlider />
         </section>
-
-      
       </div>
     </main>
   );

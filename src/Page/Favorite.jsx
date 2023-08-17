@@ -1,24 +1,20 @@
-import React, { useContext } from 'react'
-import Produkt from '../Front-End/Main/Produkt'
-import useLoadData from "../Back-End/LoadDataFirebase"
-import { ShopContext } from '../Back-End/context/ShopContext'
-import {AddFavoriteContext} from '../Back-End/context/AddFavoriteContext'
-import { Link } from 'react-router-dom'
-import AddCartButton from '../Front-End/Main/AddCartButton'
-import AddFavoriteButton from '../Front-End/Main/AddFavoriteButton'
+import React, { useContext } from "react";
+import Produkt from "../Front-End/Main/Produkt";
+import useLoadData from "../Back-End/LoadDataFirebase";
+import { ShopContext } from "../Back-End/context/ShopContext";
+import { AddFavoriteContext } from "../Back-End/context/AddFavoriteContext";
+import { Link } from "react-router-dom";
+import AddCartButton from "../Front-End/Main/AddCartButton";
+import AddFavoriteButton from "../Front-End/Main/AddFavoriteButton";
 
 const Favorite = () => {
-    // const {  } =useContext(ShopContext)
-    const { favorite } =useContext(AddFavoriteContext)
-    const products = favorite;
+  // const {  } =useContext(ShopContext)
+  const { favorite } = useContext(AddFavoriteContext);
+  const products = favorite;
 
-  
-    
- 
   return (
-
-    <div className='favoritePage max-w-7xl m-auto'>
-         <div className="flex flex-wrap w-full pt-7 ">
+    <div className="favoritePage max-w-7xl m-auto">
+      <div className="flex flex-wrap w-full pt-7 ">
         {products.map((one) => {
           return (
             <div
@@ -33,7 +29,7 @@ const Favorite = () => {
                 <div className="flex justify-end">
                   {/* Pokud je id v oblíbených smaže ho pokud není přidá ho */}
                   <div>
-                    <AddFavoriteButton product={one}/>
+                    <AddFavoriteButton product={one} />
                     {/* <MdFavorite className="text-[20px] fill-red-600 cursor-pointer" />
 
                     <MdFavoriteBorder className="text-[20px] cursor-pointer" /> */}
@@ -62,7 +58,7 @@ const Favorite = () => {
                     {one.title}
                   </h2>
                 )}
-         
+
                 <div className="flex justify-between items-center">
                   <button>
                     <AddCartButton product={one} />
@@ -71,18 +67,13 @@ const Favorite = () => {
                     {parseFloat(one.price).toLocaleString("cs-CZ")} Kč
                   </h3>
                 </div>
-           
               </Link>
             </div>
           );
         })}
-
+      </div>
     </div>
-    </div>
+  );
+};
 
-   
- 
-  )
-}
-
-export default Favorite
+export default Favorite;

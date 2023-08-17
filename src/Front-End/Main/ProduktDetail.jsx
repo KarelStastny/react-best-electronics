@@ -10,7 +10,7 @@ const ProduktDetail = () => {
   const { setSelectedCategory, setSelectedSubcategory } =
     useContext(ShopContext);
   const { produktId } = useParams();
-  const {products} = useLoadData([]);
+  const { products } = useLoadData([]);
 
   // Vyfiltrování správný produkt do stránky
   const product = products.find((one) => {
@@ -26,7 +26,7 @@ const ProduktDetail = () => {
           </div>
           <div className="flex items-center justify-center gap-4 mt-4">
             <Link
-            className="hover:text-second"
+              className="hover:text-second"
               to={"/category"}
               onClick={() => {
                 setSelectedCategory(product.mainCategory);
@@ -39,7 +39,7 @@ const ProduktDetail = () => {
               <MdKeyboardArrowRight />
             </div>
             <Link
-            className="hover:text-second"
+              className="hover:text-second"
               to={"/category"}
               onClick={() => {
                 setSelectedSubcategory(product.secondCategory);

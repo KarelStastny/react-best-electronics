@@ -4,7 +4,7 @@ import Logo from "./Logo";
 import Navbar from "./Navbar";
 import { GiHamburgerMenu } from "react-icons/gi";
 import MobileNavbar from "./MobileNavbar";
-import { ShopContext } from '../../Back-End/context/ShopContext';
+import { ShopContext } from "../../Back-End/context/ShopContext";
 import AllCategory from "../Main/AllCategory";
 
 const Header = () => {
@@ -12,7 +12,6 @@ const Header = () => {
 
   const handleHamburgerClick = () => {
     setIsOpenMenu(!isOpenMenu);
-    
   };
 
   return (
@@ -20,8 +19,10 @@ const Header = () => {
       <div className="flex justify-between items-center px-10 h-16 relative  ">
         <Navbar />
         <Logo className="" />
-        <div className="hidden md:flex"><ActionIcon /></div>
-        
+        <div className="hidden md:flex">
+          <ActionIcon />
+        </div>
+
         <div className="md:hidden ">
           <GiHamburgerMenu
             onClick={handleHamburgerClick}
@@ -29,17 +30,15 @@ const Header = () => {
           />
           {isOpenMenu && (
             <div className="bg-dark absolute mt-2 rounded-md left-0 p-2 z-20 w-full h-screen">
-             
-              <div className="flex flex-col items-center justify-center">
-              <MobileNavbar />
-              <div><AllCategory onClick={handleHamburgerClick}/></div>
-              <div className="mt-8 w-full ">
-              <ActionIcon />
+              <div className="flex flex-col items-center justify-center ">
+                <MobileNavbar />
+                <div className="mt-8">
+                  <AllCategory onClick={handleHamburgerClick} />
+                </div>
+                <div className="mt-8 w-full ">
+                  <ActionIcon />
+                </div>
               </div>
-              
-              
-              </div>
-       
             </div>
           )}
         </div>
