@@ -76,6 +76,7 @@ const NewProduct = () => {
       longText: longText,
       newProduct: newProduct,
       imageAsset: imageAsset,
+      visible: false,
       id: `${Date.now()}`
     };
 

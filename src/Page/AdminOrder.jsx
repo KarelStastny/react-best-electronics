@@ -12,9 +12,9 @@ const AdminOrder = () => {
   return (
     <div className="max-w-[1240px] m-auto">
       {ordresRecevied.map((oneOrder) => (
-        <div key={oneOrder.id} className="w-full  mt-10 grad p-2 md:p-4">
+        <div key={oneOrder.id} className="w-full  mt-10 grad p-2 md:p-4 rounded-lg">
           <div className="text-center mb-4">
-            <h2 className="uppercase flex items-center gap-2 justify-center">Údaje o objednávce: <p className="text-second font-semibold"> {oneOrder.id}</p></h2>
+            <h2 className="uppercase flex items-center gap-2 justify-center">Údaje k objednávce: <p className="text-second font-semibold"> {oneOrder.id}</p></h2>
           </div>
           <div className="flex flex-col md:flex-row justify-between">
             <div>

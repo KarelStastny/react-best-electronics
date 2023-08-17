@@ -81,7 +81,7 @@ const NewProductSlider = () => {
                   key={one.id}
                 >
                   {/* Vnitřní barva */}
-                  <Link to={`/product/${one.id}`} className="   w-full h-full">
+                  <div  className="   w-full h-full">
                     {/* FAvorite */}
 
                     <div className="flex justify-between items-center pb-2">
@@ -93,7 +93,7 @@ const NewProductSlider = () => {
                         <AddFavoriteButton product={one} />
                       </div>
                     </div>
-
+                <Link to={`/product/${one.id}`}>
                     {/* Img */}
                     <div className="md:h-[200px] h-[150px] flex items-center justify-center p-2 md:p-4">
                       <img
@@ -116,7 +116,7 @@ const NewProductSlider = () => {
                         {one.title}
                       </h2>
                     )}
-
+</Link>
                     <div className="flex justify-between items-center">
                       <button>
                         <AddCartButton product={one} />
@@ -125,7 +125,7 @@ const NewProductSlider = () => {
                         {parseFloat(one.price).toLocaleString("cs-CZ")} Kč
                       </h3>
                     </div>
-                  </Link>
+                  </div>
                 </SwiperSlide>
               );
             })}
