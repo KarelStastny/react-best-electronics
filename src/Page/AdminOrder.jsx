@@ -7,7 +7,7 @@ const AdminOrder = () => {
   const { products, ordresRecevied } = useLoadData();
 
   return (
-    <div className="max-w-[1240px] m-auto">
+    <div className="max-w-[1240px] m-auto p-4">
       {ordresRecevied.map((oneOrder) => (
         <div
           key={oneOrder.id}

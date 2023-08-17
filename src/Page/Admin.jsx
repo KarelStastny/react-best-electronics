@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { ShopFirestore } from "../Back-End/firebase/config";
 import useLoadData from "../Back-End/LoadDataFirebase";
-import { MdAutoAwesomeMosaic } from "react-icons/md";
+import ReactPaginate from "react-paginate";
 
 const Admin = () => {
   const { products } = useLoadData();
-
-  console.log(products);
 
   // Aktualizace stavu v databázi
   const toggleVisibility = async (productId) => {
@@ -34,10 +32,10 @@ const Admin = () => {
           {products.map((product) => (
             <li
               key={product.id}
-              className="mb-4 grad rounded-lg flex items-center justify-between "
+              className="mb-4 grad rounded-lg flex items-center justify-between flex-col lg:flex-row p-2 "
             >
               {/* Obrázek */}
-              <div className="w-[10%] ">
+              <div className="lg:w-[10%]">
                 <img
                   src={product.imageAsset}
                   alt=""
@@ -46,14 +44,14 @@ const Admin = () => {
               </div>
 
               {/* Název */}
-              <div className="w-[10%]">
+              <div className="lg:w-[10%]">
                 <p className="text-sm">
                   {product.title ? product.title.substring(0, 25) : ""}
                 </p>
               </div>
 
               {/* Kategorie */}
-              <div className="w-[10%]">
+              <div className="lg:w-[10%]">
                 <p>
                   <span>{product.mainCategory}</span>
                 </p>
@@ -66,7 +64,7 @@ const Admin = () => {
               </div>
 
               {/* Krátký text */}
-              <div className="w-[10%]">
+              <div className="lg:w-[10%]">
                 <p>Krátký popis</p>
                 <p className="text-xs">
                   {product.shortText ? product.shortText.substring(0, 50) : ""}
@@ -74,7 +72,7 @@ const Admin = () => {
               </div>
 
               {/* Dlouhý text */}
-              <div className="w-[10%]">
+              <div className="lg:w-[10%] ">
                 <p>Dlouhý popis</p>
                 <p className="text-xs">
                   {product.longText ? product.longText.substring(0, 50) : ""}
@@ -82,12 +80,12 @@ const Admin = () => {
               </div>
 
               {/* Cena */}
-              <div className="w-[10%]">
+              <div className="lg:w-[10%]">
                 <p>{parseFloat(product.price).toLocaleString("cs-CZ")} Kč</p>
               </div>
 
               {/* Tlačítka */}
-              <div className="w-[10%]">
+              <div className="lg:w-[10%]">
                 {product.visible ? (
                   <button
                     onClick={() => {
