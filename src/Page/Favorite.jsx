@@ -1,14 +1,10 @@
 import React, { useContext } from "react";
-import Produkt from "../Front-End/Main/Produkt";
-import useLoadData from "../Back-End/LoadDataFirebase";
-import { ShopContext } from "../Back-End/context/ShopContext";
 import { AddFavoriteContext } from "../Back-End/context/AddFavoriteContext";
 import { Link } from "react-router-dom";
 import AddCartButton from "../Front-End/Main/AddCartButton";
 import AddFavoriteButton from "../Front-End/Main/AddFavoriteButton";
 
 const Favorite = () => {
-  // const {  } =useContext(ShopContext)
   const { favorite } = useContext(AddFavoriteContext);
   const products = favorite;
 
@@ -30,9 +26,6 @@ const Favorite = () => {
                   {/* Pokud je id v oblíbených smaže ho pokud není přidá ho */}
                   <div>
                     <AddFavoriteButton product={one} />
-                    {/* <MdFavorite className="text-[20px] fill-red-600 cursor-pointer" />
-
-                    <MdFavoriteBorder className="text-[20px] cursor-pointer" /> */}
                   </div>
                 </div>
 

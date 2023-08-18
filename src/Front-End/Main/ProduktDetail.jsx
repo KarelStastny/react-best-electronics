@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { useParams, Link } from "react-router-dom";
-import useLoadData from "../../Back-End/LoadDataFirebase"; // Importujte komponentu useLoadData
+import useLoadData from "../../Back-End/LoadDataFirebase";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import AddCartButton from "./AddCartButton";
 import AddFavoriteButton from "./AddFavoriteButton";
@@ -11,8 +11,6 @@ const ProduktDetail = () => {
     useContext(ShopContext);
   const { produktId } = useParams();
   const { products } = useLoadData([]);
-
-  console.log(products);
 
   // Vyfiltrování správný produkt do stránky
   const product = products.find((one) => {

@@ -23,7 +23,6 @@ const AddCartButton = ({ product }) => {
           onClick={handleDeleteToCart}
           className="flex items-center bg-second py-1 px-2 rounded-lg"
         >
-          {/* <span className="mr-1 md:mr-2 text-dark font-semibold text-xs sm:text-base">Remove</span> */}
           <MdDelete className="fill-dark text-[15px] sm:text-[20px]" />
         </motion.button>
       ) : (

@@ -1,10 +1,8 @@
-import React, { useContext } from "react";
-import { AddCartContext } from "../Back-End/context/AddCartContext";
+import React from "react";
 import useLoadData from "../Back-End/LoadDataFirebase";
 
 const AdminOrder = () => {
-  //   const { ordresRecevied } = useContext(AddCartContext);
-  const { products, ordresRecevied } = useLoadData();
+  const { ordresRecevied } = useLoadData();
 
   return (
     <div className="max-w-[1240px] m-auto p-4">
@@ -15,7 +13,7 @@ const AdminOrder = () => {
         >
           <div className="text-center mb-4">
             <h2 className="uppercase flex items-center gap-2 justify-center">
-              Údaje k objednávce:{" "}
+              Údaje k objednávce:
               <p className="text-second font-semibold"> {oneOrder.id}</p>
             </h2>
           </div>
@@ -52,8 +50,8 @@ const AdminOrder = () => {
           </div>
 
           <div className="text-center mt-6 flex items-center gap-2 justify-center">
-            Celková cena:{" "}
-            <p className="text-second font-semibold">{oneOrder.totalPrice}</p>{" "}
+            Celková cena:
+            <p className="text-second font-semibold">{oneOrder.totalPrice}</p>
             Kč
           </div>
         </div>

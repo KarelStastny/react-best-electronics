@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from "react";
 import { ShopFirestore } from "../Back-End/firebase/config";
 import useLoadData from "../Back-End/LoadDataFirebase";
-import ReactPaginate from "react-paginate";
 
 const Admin = () => {
   const { products } = useLoadData();

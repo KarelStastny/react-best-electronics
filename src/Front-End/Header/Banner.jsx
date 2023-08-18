@@ -1,7 +1,5 @@
 import React, { useContext } from "react";
-import Logo from "./Logo";
 import { Link } from "react-router-dom";
-import { CiInstagram, CiFacebook, CiLinkedin, CiYoutube } from "react-icons/ci";
 import Img1 from "../../images/SocailIconColor/facebook.png";
 import Img2 from "../../images/SocailIconColor/instagram.png";
 import Img3 from "../../images/SocailIconColor/linkedin.png";

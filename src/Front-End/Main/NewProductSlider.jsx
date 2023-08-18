@@ -15,7 +15,6 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import "swiper/css/mousewheel";
-// Vlastní
 
 import { Link } from "react-router-dom";
 import AddFavoriteButton from "./AddFavoriteButton";

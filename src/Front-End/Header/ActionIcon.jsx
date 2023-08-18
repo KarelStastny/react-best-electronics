@@ -1,20 +1,16 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { AddFavoriteContext } from "../../Back-End/context/AddFavoriteContext";
 import { AddCartContext } from "../../Back-End/context/AddCartContext";
 import { motion } from "framer-motion";
-import {
-  MdFavoriteBorder,
-  MdFavorite,
-  MdOutlineShoppingCart,
-} from "react-icons/md";
+import { MdFavoriteBorder, MdOutlineShoppingCart } from "react-icons/md";
 
 import { BiUserCircle } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import { ShopContext } from "../../Back-End/context/ShopContext";
 
 const ActionIcon = () => {
-  const { FavoriteLength, emptyFavorite } = useContext(AddFavoriteContext);
-  const { cartLength, emptyCart } = useContext(AddCartContext);
+  const { FavoriteLength } = useContext(AddFavoriteContext);
+  const { cartLength } = useContext(AddCartContext);
   const { isAdminMenuOpen, setIsAdminMenuOpen, setIsOpenMenu } =
     useContext(ShopContext);
 
@@ -38,8 +34,8 @@ const ActionIcon = () => {
         <Link to={"/favorite"} onClick={favoriteMenu} className="relative">
           <motion.div whileTap={{ scale: 0.75 }}>
             <MdFavoriteBorder className="text-[35px] p-[1px] hover:fill-red-600 rounded-md hover: transition-all duration-100 ease-in-out cursor-pointer" />
-            {/* Zobrazení položek */}
 
+            {/* Zobrazení položek */}
             <div className="absolute -top-1 -right-1 bg-red-600 w-4 h-4 flex items-center justify-center rounded-full">
               <span className="text-xs text-lightWhite font-semibold">
                 {FavoriteLength}
@@ -52,8 +48,8 @@ const ActionIcon = () => {
         <Link to={"/cart"} onClick={favoriteMenu} className="relative">
           <motion.div whileTap={{ scale: 0.75 }}>
             <MdOutlineShoppingCart className="text-[35px] p-[1px] hover:fill-second rounded-md hover: transition-all duration-100 ease-in-out cursor-pointer" />
-            {/* Zobrazení položek */}
 
+            {/* Zobrazení položek */}
             <div className="absolute -top-1 -right-1 bg-second w-4 h-4 flex items-center justify-center rounded-full">
               <span className="text-xs text-black font-semibold">
                 {cartLength}

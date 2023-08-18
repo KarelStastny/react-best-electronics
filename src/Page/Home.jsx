@@ -4,7 +4,6 @@ import AdSlider from "../Front-End/Header/AdSlider";
 import Sale from "../Front-End/Header/Sale";
 import NewProductSlider from "../Front-End/Main/NewProductSlider";
 import AllCategory from "../Front-End/Main/AllCategory";
-import Header from "../Front-End/Header/Header";
 
 const Home = () => {
   return (

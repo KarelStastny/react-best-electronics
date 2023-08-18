@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { ShopFirestore, ShopStorage } from "../Back-End/firebase/config";
 import Categories from "../Back-End/Categories";
 
@@ -30,10 +30,9 @@ const NewProduct = () => {
   };
 
   // ********** Upload Image
-
   const uploadImage = async (e) => {
     const file = e.target.files[0];
-    const storageRef = ShopStorage.ref(); // Použijeme ShopStorage
+    const storageRef = ShopStorage.ref();
     const fileRef = storageRef.child(`images/${file.name}`);
 
     try {
@@ -86,7 +85,6 @@ const NewProduct = () => {
       );
 
       // Získat automaticky vygenerované Id z firestore
-
       const newItem = {
         ...newItemWithoutId,
         id: docRef.id,

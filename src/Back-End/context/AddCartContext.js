@@ -4,14 +4,11 @@ export const AddCartContext = createContext();
 
 const AddCartContextProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
-  // const [ordresRecevied, setOrdersReceived] = useState([])
   const [totalPrice, setTotalPrice] = useState(0);
 
   const isProductInCart = (productId) => {
     return cart.some((item) => item.id === productId);
   };
-
-  console.log(cart);
 
   const addToCart = (product) => {
     if (!isProductInCart(product.id)) {
@@ -100,8 +97,6 @@ const AddCartContextProvider = ({ children }) => {
         minuseQuantity,
         totalPrice,
         setCart,
-        // ordresRecevied,
-        // setOrdersReceived,
       }}
     >
       {children}

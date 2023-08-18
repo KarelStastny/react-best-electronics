@@ -1,5 +1,4 @@
 import React from "react";
-
 import Img1 from "../../images/AdSliderImage/4.png";
 import Img2 from "../../images/AdSliderImage/6.png";
 

@@ -1,18 +1,15 @@
-import React, { useState, useContext } from "react";
-import useLoadData from "../../Back-End/LoadDataFirebase"; // Importujte komponentu useLoadData
+import React, { useContext } from "react";
+import useLoadData from "../../Back-End/LoadDataFirebase";
 import { Link } from "react-router-dom";
 import { ShopContext } from "../../Back-End/context/ShopContext";
-import { MdFavoriteBorder, MdFavorite } from "react-icons/md";
 import AddCartButton from "./AddCartButton";
 import AddFavoriteButton from "./AddFavoriteButton";
 
 const Produkt = () => {
   const { selectedCategory, selectedSubcategory } = useContext(ShopContext);
-
   const { products } = useLoadData();
 
   // Filter produktů
-
   const filteredProducts = products.filter((product) => {
     // Pokud nejsou vybrány žádné kategorie vygeneruje vše
     if (!selectedCategory && !selectedSubcategory) {
@@ -36,7 +33,7 @@ const Produkt = () => {
       return product.secondCategory === selectedSubcategory;
     }
 
-    return false; // Přidejte tento řádek jako fallback pro ostatní případy
+    return false;
   });
 
   return (
@@ -57,9 +54,6 @@ const Produkt = () => {
                     {/* Pokud je id v oblíbených smaže ho pokud není přidá ho */}
                     <div>
                       <AddFavoriteButton product={one} />
-                      {/* <MdFavorite className="text-[20px] fill-red-600 cursor-pointer" />
-  
-                      <MdFavoriteBorder className="text-[20px] cursor-pointer" /> */}
                     </div>
                   </div>
 

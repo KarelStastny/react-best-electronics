@@ -1,21 +1,13 @@
 import React, { useContext } from "react";
-import Produkt from "../Front-End/Main/Produkt";
-import useLoadData from "../Back-End/LoadDataFirebase";
-import { ShopContext } from "../Back-End/context/ShopContext";
-import { AddFavoriteContext } from "../Back-End/context/AddFavoriteContext";
 import { AddCartContext } from "../Back-End/context/AddCartContext";
 import { Link } from "react-router-dom";
 import AddCartButton from "../Front-End/Main/AddCartButton";
-import AddFavoriteButton from "../Front-End/Main/AddFavoriteButton";
 import { motion } from "framer-motion";
 
 const Cart = () => {
-  // const {  } =useContext(ShopContext)
   const { cart, minuseQuantity, pluseQuantity, totalPrice } =
     useContext(AddCartContext);
   const carts = cart;
-
-  // console.log(carts);
 
   return (
     <div className="cartPage max-w-2xl m-auto">
@@ -65,7 +57,7 @@ const Cart = () => {
                   <div className="flex items-center justify-between gap-2">
                     {/* Minuse */}
                     <motion.button
-                    whileTap={{ scale: 0.9 }}
+                      whileTap={{ scale: 0.9 }}
                       onClick={() => {
                         minuseQuantity(one);
                       }}
@@ -75,7 +67,9 @@ const Cart = () => {
                     </motion.button>
                     {/* Qunatity */}
                     <div className="bg-white w-7 h-7 rounded-full flex items-center justify-center ">
-                      <div className="text-dark font-semibold">{one.quantity}</div>
+                      <div className="text-dark font-semibold">
+                        {one.quantity}
+                      </div>
                     </div>
                     {/* Pluse */}
                     <button
@@ -103,11 +97,17 @@ const Cart = () => {
         })}
         <div className="grad flex mt-4 p-4  rounded-lg w-[350px] m-auto flex-col items-center justify-center">
           <div className="uppercase font-semibold">Celková částka</div>
-          <div className="text-second">{parseFloat(totalPrice).toLocaleString("cs-CZ")} Kč</div>
-   
-          <Link to={"/order"} className="bg-second py-1 px-2 rounded-lg mt-4 text-dark font-semibold">Objednat</Link>
+          <div className="text-second">
+            {parseFloat(totalPrice).toLocaleString("cs-CZ")} Kč
+          </div>
+
+          <Link
+            to={"/order"}
+            className="bg-second py-1 px-2 rounded-lg mt-4 text-dark font-semibold"
+          >
+            Objednat
+          </Link>
         </div>
-        
       </div>
     </div>
   );

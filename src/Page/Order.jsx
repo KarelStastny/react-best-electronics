@@ -1,10 +1,9 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { AddCartContext } from "../Back-End/context/AddCartContext";
-import { MdLocalGasStation } from "react-icons/md";
 import { ShopFirestore, ShopStorage } from "../Back-End/firebase/config";
 
 const Order = () => {
-  const { cart, totalPrice, setCart, ordresRecevied, setOrdersReceived } =
+  const { cart, totalPrice, setCart, ordresRecevied } =
     useContext(AddCartContext);
   const [userName, setUserName] = useState("");
   const [userSurName, setSurName] = useState("");
@@ -62,7 +61,6 @@ const Order = () => {
     };
 
     try {
-      //   const updateAllOrders = [...ordresRecevied, allOrderInfo];
       await ShopFirestore.collection("ordersRecevied").add(allOrderInfo);
 
       //   Vyprázdnění políček
@@ -84,8 +82,6 @@ const Order = () => {
     } catch {
       console.log("Chyba v odeslání objednávky");
     }
-
-    console.log(ordresRecevied);
   };
 
   return (

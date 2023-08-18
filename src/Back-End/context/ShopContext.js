@@ -3,7 +3,7 @@ import React, { useState, createContext } from "react";
 export const ShopContext = createContext();
 
 const ShopContextProvider = ({ children }) => {
-  const [selectedCategory, setSelectedCategory] = useState(null); // Hlavní kategorie
+  const [selectedCategory, setSelectedCategory] = useState(null);
   const [selectedSubcategory, setSelectedSubcategory] = useState(null);
   const [isOpenMenu, setIsOpenMenu] = useState(false);
   const [isAdminMenuOpen, setIsAdminMenuOpen] = useState(false);
@@ -14,8 +14,6 @@ const ShopContextProvider = ({ children }) => {
     setSelectedSubcategory(null);
   };
 
-  // console.log(favorites);
-
   return (
     <ShopContext.Provider
       value={{
@@ -24,7 +22,6 @@ const ShopContextProvider = ({ children }) => {
         selectedSubcategory,
         setSelectedSubcategory,
         resetFilterProducts,
-
         isOpenMenu,
         setIsOpenMenu,
         isAdminMenuOpen,

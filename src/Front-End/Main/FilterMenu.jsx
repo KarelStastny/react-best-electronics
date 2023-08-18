@@ -1,13 +1,12 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import Categories from "../../Back-End/Categories";
 import { ShopContext } from "../../Back-End/context/ShopContext";
-import { MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
+import { MdKeyboardArrowDown } from "react-icons/md";
 
 const FilterMenu = () => {
   const {
     selectedCategory,
     setSelectedCategory,
-    selectedSubcategory,
     setSelectedSubcategory,
     resetFilterProducts,
   } = useContext(ShopContext);
@@ -24,7 +23,6 @@ const FilterMenu = () => {
   };
 
   // přepínač pro podkategorii
-
   const toggleSubcategory = (subcategoryTitle) => {
     if (selectedCategory === subcategoryTitle) {
       setSelectedCategory(null);
@@ -36,7 +34,7 @@ const FilterMenu = () => {
   return (
     <div className="filter-menu">
       <div className="md:w-[200px] bg-dark md:h-screen rounded-xl">
-        {/* resetování prduktu */}
+        {/* resetování produktu */}
         <div
           onClick={() => resetFilterProducts()}
           className="uppercase bg-second text-dark font-bold py-2 px-5 rounded-t-xl cursor-pointer"

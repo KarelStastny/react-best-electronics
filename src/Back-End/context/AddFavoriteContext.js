@@ -25,7 +25,6 @@ const AddFavoriteContextProvider = ({ children }) => {
   const FavoriteLength = favorite.length;
 
   // Prázdné pole
-
   const emptyFavorite = () => {
     if (FavoriteLength < 1) {
       return true;
@@ -33,8 +32,6 @@ const AddFavoriteContextProvider = ({ children }) => {
       return false;
     }
   };
-
-  console.log(favorite);
 
   return (
     <AddFavoriteContext.Provider
