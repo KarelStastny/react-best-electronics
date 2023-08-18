@@ -19,7 +19,7 @@ const MobileNavbar = () => {
               className="hover:bg-second px-2 py-1 transition-all duration-200 ease-in-out hover:text-black font-semibold rounded-md "
               to="/"
             >
-              Home
+              Domů
             </Link>
 
             <Link
@@ -27,7 +27,7 @@ const MobileNavbar = () => {
               className="hover:bg-second px-2 py-1 transition-all duration-200 ease-in-out hover:text-black font-semibold rounded-md "
               to="/about"
             >
-              About
+              Projekt
             </Link>
 
             <Link
@@ -35,7 +35,7 @@ const MobileNavbar = () => {
               className="hover:bg-second px-2 py-1 transition-all duration-200 ease-in-out hover:text-black font-semibold rounded-md "
               to="/category"
             >
-              Category
+              Kategorie
             </Link>
           </ul>
         </div>

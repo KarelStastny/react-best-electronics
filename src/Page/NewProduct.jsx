@@ -12,7 +12,7 @@ const NewProduct = () => {
   const [longText, setLongText] = useState("");
   const [newProduct, setNewProduct] = useState("");
   const [imageAsset, setImageAsset] = useState("");
-  const [uploading, setUploading] = useState(false);
+
 
   // Zjistit vybranou hlavní kategorii a nastavit odpovídající podkategorie
   const handleMainCategoryChange = (e) => {
@@ -36,14 +36,11 @@ const NewProduct = () => {
     const fileRef = storageRef.child(`images/${file.name}`);
 
     try {
-      setUploading(true); // Začátek nahrávání
       await fileRef.put(file);
       const imageUrl = await fileRef.getDownloadURL();
       setImageAsset(imageUrl); // Nastavit URL obrázku
-      setUploading(false); // Konec nahrávání
     } catch (error) {
       console.error("Chyba při nahrávání obrázku:", error);
-      setUploading(false); // Konec nahrávání (i v případě chyby)
     }
   };
 

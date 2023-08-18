@@ -1,10 +1,9 @@
 import React, { useContext, useState } from "react";
 import { AddCartContext } from "../Back-End/context/AddCartContext";
-import { ShopFirestore, ShopStorage } from "../Back-End/firebase/config";
+import { ShopFirestore } from "../Back-End/firebase/config";
 
 const Order = () => {
-  const { cart, totalPrice, setCart, ordresRecevied } =
-    useContext(AddCartContext);
+  const { cart, totalPrice, setCart } = useContext(AddCartContext);
   const [userName, setUserName] = useState("");
   const [userSurName, setSurName] = useState("");
   const [userPSC, setUserPSC] = useState("");

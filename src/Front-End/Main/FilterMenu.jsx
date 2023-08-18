@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import Categories from "../../Back-End/Categories";
 import { ShopContext } from "../../Back-End/context/ShopContext";
-import { MdKeyboardArrowDown } from "react-icons/md";
+import { MdKeyboardArrowDown, MdFilterAltOff } from "react-icons/md";
 
 const FilterMenu = () => {
   const {
@@ -37,9 +37,11 @@ const FilterMenu = () => {
         {/* resetování produktu */}
         <div
           onClick={() => resetFilterProducts()}
-          className="uppercase bg-second text-dark font-bold py-2 px-5 rounded-t-xl cursor-pointer"
+          className=" bg-second  py-2 px-5 rounded-t-xl cursor-pointer flex justify-between items-center"
         >
-          Katalog
+          <p className="uppercase text-dark font-bold">Katalog</p>
+          
+          <MdFilterAltOff size={20} className="fill-dark"/>
         </div>
         {Categories?.map((category) => (
           <div className="p-1" key={category.id}>

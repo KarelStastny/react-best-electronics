@@ -94,6 +94,8 @@ const Produkt = () => {
                 </div>
               </div>
             );
+          }else {
+            return null; // Ignorovat neviditelné produkty
           }
         })}
       </div>

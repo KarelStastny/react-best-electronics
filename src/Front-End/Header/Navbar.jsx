@@ -12,7 +12,7 @@ const Navbar = () => {
               className="hover:bg-second px-2 py-1 transition-all duration-200 ease-in-out hover:text-black font-semibold rounded-md "
               to="/"
             >
-              Home
+              Domů
             </Link>
           </motion.div>
           <motion.div whileTap={{ scale: 0.75 }}>
@@ -20,7 +20,7 @@ const Navbar = () => {
               className="hover:bg-second px-2 py-1 transition-all duration-200 ease-in-out hover:text-black font-semibold rounded-md "
               to="/about"
             >
-              About
+              Projekt
             </Link>
           </motion.div>
           <motion.div whileTap={{ scale: 0.75 }}>
@@ -28,7 +28,7 @@ const Navbar = () => {
               className="hover:bg-second px-2 py-1 transition-all duration-200 ease-in-out hover:text-black font-semibold rounded-md "
               to="/category"
             >
-              Category
+              Kategorie
             </Link>
           </motion.div>
         </ul>
