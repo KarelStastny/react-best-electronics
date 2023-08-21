@@ -7,7 +7,7 @@ import Img4 from "../images/SocailIconColor/youtube.png";
 const Footer = () => {
   return (
     <div className="flex items-center justify-center gap-2 flex-col mt-5 mb-5">
-      <p>© 1994 - 2023 Best Electronic a.s.</p>
+      <p>© 1994 - 2023 Best Electronic a.s. </p>
 
       <div className="flex items-center justify-center gap-6 mt-4">
         <a
