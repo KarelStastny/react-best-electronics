@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/react-best-electronics/static/css/main.240e1c3b.css",
-    "main.js": "/react-best-electronics/static/js/main.537f3c66.js",
+    "main.js": "/react-best-electronics/static/js/main.cf1b09da.js",
     "static/media/accessories.png": "/react-best-electronics/static/media/accessories.b9c21e326ed1628e2f53.png",
     "static/media/notebook.png": "/react-best-electronics/static/media/notebook.b23a1d49c45e327851db.png",
     "static/media/2.png": "/react-best-electronics/static/media/2.cdec2a0166c074290c09.png",
@@ -17,10 +17,10 @@
     "static/media/instagram.png": "/react-best-electronics/static/media/instagram.75e0546a6b5abe4c0506.png",
     "index.html": "/react-best-electronics/index.html",
     "main.240e1c3b.css.map": "/react-best-electronics/static/css/main.240e1c3b.css.map",
-    "main.537f3c66.js.map": "/react-best-electronics/static/js/main.537f3c66.js.map"
+    "main.cf1b09da.js.map": "/react-best-electronics/static/js/main.cf1b09da.js.map"
   },
   "entrypoints": [
     "static/css/main.240e1c3b.css",
-    "static/js/main.537f3c66.js"
+    "static/js/main.cf1b09da.js"
   ]
 }
